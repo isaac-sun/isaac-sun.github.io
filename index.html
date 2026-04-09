@@ -815,8 +815,8 @@
       position: relative;
       display: flex;
       flex-direction: column;
-      min-height: 250px;
-      gap: 14px;
+      min-height: 420px;
+      gap: 12px;
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.1);
       background:
@@ -893,6 +893,50 @@
       position: relative;
       z-index: 1;
       transform: translateZ(18px);
+    }
+
+    .project-cover {
+      position: relative;
+      margin: -16px -16px 2px;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01)),
+        rgba(255, 255, 255, 0.02);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+
+    .project-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.01);
+      transition: transform 420ms ease, filter 420ms ease;
+      filter: saturate(1.03) contrast(1.04);
+    }
+
+    .project-card:hover .project-cover img {
+      transform: scale(1.05);
+      filter: saturate(1.1) contrast(1.06);
+    }
+
+    .project-cover::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(4, 10, 20, 0.02), rgba(4, 10, 20, 0.3) 70%, rgba(4, 10, 20, 0.56) 100%);
+      pointer-events: none;
+    }
+
+    .project-content {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-height: 0;
+      flex: 1;
     }
 
     .repo-meta {
@@ -1548,6 +1592,7 @@
         name: "cs-ai-learning-notes",
         category: "notes",
         featured: true,
+        cover: "./assets/covers/cs-ai-learning-notes.svg",
         language: "Python",
         en: {
           title: "CS AI Learning Notes",
@@ -1562,6 +1607,7 @@
         name: "CS-Course",
         category: "notes",
         featured: true,
+        cover: "./assets/covers/cs-course.svg",
         language: "Markdown",
         en: {
           title: "CS Course Archive",
@@ -1576,6 +1622,7 @@
         name: "Chest-X-ray-Pneumonia-Classification-with-Centralized---Federated-Learning",
         category: "research",
         featured: true,
+        cover: "./assets/covers/chest-xray-fl.svg",
         language: "Python",
         en: {
           title: "Chest X-ray FL vs Centralized",
@@ -1590,6 +1637,7 @@
         name: "IMDB-Sentiment-Classification-with-Federated-Learning",
         category: "research",
         featured: false,
+        cover: "./assets/covers/imdb-fl.svg",
         language: "Python",
         en: {
           title: "IMDB Sentiment with Federated Learning",
@@ -1604,6 +1652,7 @@
         name: "GIF-Generator",
         category: "tools",
         featured: false,
+        cover: "./assets/covers/gif-generator.svg",
         language: "JavaScript",
         en: {
           title: "GIF Generator",
@@ -1618,6 +1667,7 @@
         name: "claude-code",
         category: "tools",
         featured: false,
+        cover: "./assets/covers/claude-code.svg",
         language: "JavaScript",
         en: {
           title: "Claude Code Experiments",
@@ -1731,21 +1781,27 @@
       const repoUrl = repo.html_url || `https://github.com/${username}/${repo.name}`;
       const categoryLabel = uiText.category[repo.category][currentLang];
       const featuredLabel = uiText.category.featured[currentLang];
+      const coverAlt = `${details.title} cover`;
 
       return `
         <article class="project-card ${repo.featured ? "featured" : ""}" data-category="${repo.category}">
-          <div class="repo-meta">
-            <span class="pill"><span class="language-dot" style="background:${color};"></span>${language}</span>
-            <span class="pill">★ ${repo.stargazers_count}</span>
-            <span class="pill">${updatedLabel} ${formatDate(repo.pushed_at, currentLang)}</span>
+          <div class="project-cover">
+            <img src="${repo.cover}" alt="${coverAlt}">
           </div>
-          <h3>${details.title}</h3>
-          <p>${details.description}</p>
-          <div class="project-footer">
-            <div class="project-category">${repo.featured ? `${featuredLabel} · ${categoryLabel}` : categoryLabel}</div>
-            <div class="project-links">
-              <a href="${repoUrl}" target="_blank" rel="noreferrer">${uiText.projectPrimary[currentLang]}</a>
-              <a href="${repoUrl}" target="_blank" rel="noreferrer">${uiText.projectSecondary[currentLang]}</a>
+          <div class="project-content">
+            <div class="repo-meta">
+              <span class="pill"><span class="language-dot" style="background:${color};"></span>${language}</span>
+              <span class="pill">★ ${repo.stargazers_count}</span>
+              <span class="pill">${updatedLabel} ${formatDate(repo.pushed_at, currentLang)}</span>
+            </div>
+            <h3>${details.title}</h3>
+            <p>${details.description}</p>
+            <div class="project-footer">
+              <div class="project-category">${repo.featured ? `${featuredLabel} · ${categoryLabel}` : categoryLabel}</div>
+              <div class="project-links">
+                <a href="${repoUrl}" target="_blank" rel="noreferrer">${uiText.projectPrimary[currentLang]}</a>
+                <a href="${repoUrl}" target="_blank" rel="noreferrer">${uiText.projectSecondary[currentLang]}</a>
+              </div>
             </div>
           </div>
         </article>

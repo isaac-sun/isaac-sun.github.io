@@ -1,0 +1,28 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="44" fill="#09111E"/>
+  <rect width="1200" height="720" rx="44" fill="url(#bg)"/>
+  <circle cx="910" cy="148" r="214" fill="#56C8FF" fill-opacity="0.18"/>
+  <circle cx="216" cy="560" r="164" fill="#59F7A8" fill-opacity="0.16"/>
+  <rect x="104" y="108" width="348" height="504" rx="28" fill="#FFFFFF" fill-opacity="0.05"/>
+  <rect x="150" y="154" width="258" height="412" rx="26" fill="#0B1628"/>
+  <path d="M222 240C222 195.817 257.817 160 302 160C346.183 160 382 195.817 382 240V408C382 432.301 362.301 452 338 452H266C241.699 452 222 432.301 222 408V240Z" fill="#D9ECFF" fill-opacity="0.92"/>
+  <path d="M302 240V452" stroke="#08111E" stroke-opacity="0.28" stroke-width="12"/>
+  <path d="M250 262C250 240.46 267.46 223 289 223H315C336.54 223 354 240.46 354 262V364C354 385.54 336.54 403 315 403H289C267.46 403 250 385.54 250 364V262Z" fill="#08111E" fill-opacity="0.12"/>
+  <text x="520" y="258" fill="#59F7A8" font-family="'IBM Plex Mono', monospace" font-size="28">federated learning</text>
+  <text x="520" y="348" fill="#F6FAFF" font-family="'Manrope', sans-serif" font-size="74" font-weight="800">Chest X-ray</text>
+  <text x="520" y="426" fill="#F6FAFF" font-family="'Manrope', sans-serif" font-size="74" font-weight="800">Classification</text>
+  <text x="520" y="486" fill="#B7C9DD" font-family="'IBM Plex Mono', monospace" font-size="26">centralized vs federated experiment design</text>
+  <g opacity="0.9">
+    <circle cx="830" cy="560" r="16" fill="#59F7A8"/>
+    <circle cx="894" cy="560" r="16" fill="#56C8FF"/>
+    <circle cx="958" cy="560" r="16" fill="#FFC76D"/>
+    <path d="M846 560H878" stroke="#BFE8FA" stroke-width="4"/>
+    <path d="M910 560H942" stroke="#BFE8FA" stroke-width="4"/>
+  </g>
+  <defs>
+    <linearGradient id="bg" x1="104" y1="108" x2="1100" y2="640" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#11233F"/>
+      <stop offset="1" stop-color="#08101E"/>
+    </linearGradient>
+  </defs>
+</svg>

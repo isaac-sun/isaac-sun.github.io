@@ -1,0 +1,39 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="44" fill="#0A1222"/>
+  <rect width="1200" height="720" rx="44" fill="url(#bg)"/>
+  <g opacity="0.72">
+    <circle cx="232" cy="150" r="180" fill="#56C8FF"/>
+    <circle cx="998" cy="602" r="240" fill="#59F7A8"/>
+  </g>
+  <g opacity="0.1" stroke="#EAF7FF">
+    <path d="M88 124H1112"/>
+    <path d="M88 204H1112"/>
+    <path d="M88 284H1112"/>
+    <path d="M88 364H1112"/>
+    <path d="M88 444H1112"/>
+    <path d="M88 524H1112"/>
+    <path d="M88 604H1112"/>
+    <path d="M160 84V636"/>
+    <path d="M320 84V636"/>
+    <path d="M480 84V636"/>
+    <path d="M640 84V636"/>
+    <path d="M800 84V636"/>
+    <path d="M960 84V636"/>
+  </g>
+  <rect x="104" y="102" width="372" height="268" rx="28" fill="#FFFFFF" fill-opacity="0.06"/>
+  <rect x="140" y="144" width="188" height="18" rx="9" fill="#59F7A8"/>
+  <rect x="140" y="186" width="298" height="14" rx="7" fill="#DCE8FA" fill-opacity="0.78"/>
+  <rect x="140" y="218" width="252" height="14" rx="7" fill="#DCE8FA" fill-opacity="0.52"/>
+  <rect x="140" y="250" width="196" height="14" rx="7" fill="#DCE8FA" fill-opacity="0.34"/>
+  <rect x="140" y="292" width="122" height="38" rx="19" fill="#112945"/>
+  <text x="172" y="318" fill="#BDEDFE" font-family="'IBM Plex Mono', monospace" font-size="20">notes</text>
+  <text x="104" y="488" fill="#F6FAFF" font-family="'Manrope', sans-serif" font-size="74" font-weight="800">CS AI</text>
+  <text x="104" y="566" fill="#F6FAFF" font-family="'Manrope', sans-serif" font-size="74" font-weight="800">Learning Notes</text>
+  <text x="106" y="630" fill="#B5C4DA" font-family="'IBM Plex Mono', monospace" font-size="26">theory / math / implementation / archive</text>
+  <defs>
+    <radialGradient id="bg" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(600 360) rotate(90) scale(420 650)">
+      <stop stop-color="#0E1B34"/>
+      <stop offset="1" stop-color="#07111F"/>
+    </radialGradient>
+  </defs>
+</svg>

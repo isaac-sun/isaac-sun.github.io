@@ -1,0 +1,25 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="44" fill="#0A1020"/>
+  <rect width="1200" height="720" rx="44" fill="url(#bg)"/>
+  <g opacity="0.2">
+    <circle cx="270" cy="160" r="174" fill="#FFC76D"/>
+    <circle cx="982" cy="578" r="226" fill="#56C8FF"/>
+  </g>
+  <rect x="114" y="108" width="970" height="504" rx="32" fill="#FFFFFF" fill-opacity="0.04"/>
+  <rect x="160" y="184" width="260" height="152" rx="24" fill="#111A2B"/>
+  <text x="204" y="278" fill="#FFC76D" font-family="'Manrope', sans-serif" font-size="72" font-weight="800">IMDB</text>
+  <rect x="160" y="382" width="260" height="152" rx="24" fill="#0E1728"/>
+  <path d="M222 458C222 424.863 248.863 398 282 398H298C331.137 398 358 424.863 358 458V458C358 491.137 331.137 518 298 518H282C248.863 518 222 491.137 222 458V458Z" fill="#56C8FF"/>
+  <path d="M322 432L380 374" stroke="#BCE8FF" stroke-width="6" stroke-linecap="round"/>
+  <path d="M322 484L380 542" stroke="#BCE8FF" stroke-width="6" stroke-linecap="round"/>
+  <text x="492" y="278" fill="#59F7A8" font-family="'IBM Plex Mono', monospace" font-size="28">distributed sentiment classification</text>
+  <text x="490" y="362" fill="#F6FAFF" font-family="'Manrope', sans-serif" font-size="72" font-weight="800">Federated IMDB</text>
+  <text x="490" y="438" fill="#F6FAFF" font-family="'Manrope', sans-serif" font-size="72" font-weight="800">Sentiment Model</text>
+  <text x="492" y="502" fill="#B7C8DC" font-family="'IBM Plex Mono', monospace" font-size="26">decentralized training / text classification / evaluation</text>
+  <defs>
+    <linearGradient id="bg" x1="108" y1="96" x2="1092" y2="626" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#182342"/>
+      <stop offset="1" stop-color="#0A1020"/>
+    </linearGradient>
+  </defs>
+</svg>

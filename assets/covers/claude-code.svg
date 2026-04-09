@@ -1,0 +1,26 @@
+<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="720" rx="44" fill="#09101D"/>
+  <rect width="1200" height="720" rx="44" fill="url(#bg)"/>
+  <g opacity="0.16">
+    <circle cx="250" cy="164" r="186" fill="#56C8FF"/>
+    <circle cx="972" cy="564" r="224" fill="#59F7A8"/>
+  </g>
+  <rect x="108" y="112" width="984" height="496" rx="30" fill="#FFFFFF" fill-opacity="0.04"/>
+  <rect x="144" y="148" width="424" height="424" rx="26" fill="#0E1728"/>
+  <circle cx="186" cy="190" r="8" fill="#FF6F86"/>
+  <circle cx="216" cy="190" r="8" fill="#FFC76D"/>
+  <circle cx="246" cy="190" r="8" fill="#59F7A8"/>
+  <text x="180" y="264" fill="#59F7A8" font-family="'IBM Plex Mono', monospace" font-size="24">$ assist --ship</text>
+  <text x="180" y="332" fill="#F6FAFF" font-family="'IBM Plex Mono', monospace" font-size="28">while (idea) {'{'} build(); {'}'}</text>
+  <text x="180" y="392" fill="#BBD0E9" font-family="'IBM Plex Mono', monospace" font-size="24">tooling / prompts / workflows</text>
+  <text x="624" y="280" fill="#56C8FF" font-family="'IBM Plex Mono', monospace" font-size="28">developer tooling experiments</text>
+  <text x="622" y="368" fill="#F6FAFF" font-family="'Manrope', sans-serif" font-size="78" font-weight="800">Claude Code</text>
+  <text x="622" y="448" fill="#F6FAFF" font-family="'Manrope', sans-serif" font-size="78" font-weight="800">Experiments</text>
+  <text x="624" y="510" fill="#B7C9DD" font-family="'IBM Plex Mono', monospace" font-size="26">ai-assisted coding / interface ideas / workflow design</text>
+  <defs>
+    <linearGradient id="bg" x1="112" y1="106" x2="1086" y2="626" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#14233D"/>
+      <stop offset="1" stop-color="#09101D"/>
+    </linearGradient>
+  </defs>
+</svg>
