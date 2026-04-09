@@ -760,13 +760,17 @@
     }
 
     .filter-bar button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       cursor: pointer;
       border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(255, 255, 255, 0.04);
+      background: rgba(255, 255, 255, 0.035);
+      backdrop-filter: blur(14px);
       color: var(--muted);
       padding: 10px 14px;
       border-radius: 999px;
-      transition: color 180ms ease, background 180ms ease, transform 180ms ease, border-color 180ms ease;
+      transition: color 180ms ease, background 180ms ease, transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
     }
 
     .filter-bar button:hover {
@@ -779,6 +783,20 @@
       background: linear-gradient(135deg, var(--accent), #d7ff72);
       border-color: transparent;
       box-shadow: 0 12px 24px rgba(89, 247, 168, 0.18);
+    }
+
+    .filter-count {
+      min-width: 24px;
+      height: 24px;
+      padding: 0 7px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      color: inherit;
+      font-size: 0.74rem;
+      line-height: 1;
     }
 
     .filter-caption {
@@ -800,6 +818,14 @@
       min-height: 250px;
       gap: 14px;
       overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.025)),
+        linear-gradient(180deg, rgba(10, 18, 34, 0.82), rgba(8, 13, 24, 0.78));
+      backdrop-filter: blur(18px) saturate(120%);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 18px 36px rgba(0, 0, 0, 0.18);
       transform-style: preserve-3d;
       transform:
         perspective(1400px)
@@ -816,13 +842,14 @@
     .project-card:hover {
       --lift: -6px;
       border-color: rgba(89, 247, 168, 0.18);
-      background: linear-gradient(180deg, rgba(89, 247, 168, 0.08), rgba(255, 255, 255, 0.03));
       box-shadow: 0 20px 44px rgba(0, 0, 0, 0.24);
     }
 
     .project-card.featured {
       border-color: rgba(86, 200, 255, 0.18);
-      background: linear-gradient(180deg, rgba(86, 200, 255, 0.08), rgba(255, 255, 255, 0.03));
+      background:
+        linear-gradient(180deg, rgba(86, 200, 255, 0.09), rgba(255, 255, 255, 0.03)),
+        linear-gradient(180deg, rgba(10, 18, 34, 0.84), rgba(8, 13, 24, 0.78));
     }
 
     .project-card::before {
@@ -834,6 +861,32 @@
       opacity: var(--glow, 0);
       transition: opacity 220ms ease;
       pointer-events: none;
+    }
+
+    .project-card::after {
+      content: "";
+      position: absolute;
+      top: -40%;
+      left: -65%;
+      width: 48%;
+      height: 190%;
+      transform: rotate(18deg) translate3d(-140%, 0, 0);
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.04),
+        rgba(255, 255, 255, 0.22),
+        rgba(255, 255, 255, 0.04),
+        transparent
+      );
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .project-card:hover::after {
+      opacity: 1;
+      transform: rotate(18deg) translate3d(330%, 0, 0);
+      transition: transform 850ms ease, opacity 260ms ease;
     }
 
     .project-card > * {
@@ -874,7 +927,7 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 14px;
-      margin-top: auto;
+      margin-top: 0;
     }
 
     .project-links a {
@@ -885,6 +938,28 @@
     .project-links a:last-child {
       color: var(--muted);
       font-weight: 600;
+    }
+
+    .project-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: auto;
+      flex-wrap: wrap;
+    }
+
+    .project-category {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+      color: #d7e8f8;
+      font-size: 0.78rem;
+      font-family: "IBM Plex Mono", monospace;
     }
 
     .empty-state {
@@ -1121,8 +1196,8 @@
             class="hero-lead"
             data-parallax="10"
             data-i18n
-            data-en="I like work that starts from first principles and ends in something visible: papers, experiments, notes, interfaces, or tools. This page turns my GitHub profile into a sharper personal site with bilingual content and live project signals."
-            data-zh="我偏爱那种从第一性原理出发、最终能落成可见成果的工作：论文、实验、笔记、界面或工具。这个页面把我的 GitHub 主页整理成一个更完整的个人网站，支持中英双语，也会同步公开项目动态。"
+            data-en="I like work that starts from first principles and ends in something visible: papers, experiments, notes, interfaces, or tools."
+            data-zh="我偏爱那种从第一性原理出发、最终能落成可见成果的工作：论文、实验、笔记、界面或工具。"
           ></p>
 
           <div class="hero-actions" data-parallax="8">
@@ -1221,11 +1296,6 @@
             <div class="section-kicker" data-i18n data-en="/ live signals" data-zh="/ 实时信号"></div>
             <h2 data-i18n data-en="GitHub in motion" data-zh="动态 GitHub 档案"></h2>
           </div>
-          <p
-            data-i18n
-            data-en="Instead of freezing the page into a static resume, this section reads public GitHub data and keeps the site close to the actual account state."
-            data-zh="这里不是把页面做成静态简历，而是读取公开 GitHub 数据，让网站尽量接近账号当前真实状态。"
-          ></p>
         </div>
 
         <div class="stats-grid">
@@ -1285,8 +1355,8 @@
           ></h2>
           <p
             data-i18n
-            data-en="Your public repositories already show a strong pattern: federated learning, structured CS learning archives, AI notes, and practical tooling. I kept that identity and turned it into a more polished personal front page instead of replacing it with a generic portfolio theme."
-            data-zh="你的公开仓库已经有很清晰的脉络：联邦学习、系统化的 CS 学习资料、AI 笔记，以及偏实用的工具和工程尝试。我保留了这种气质，没有把它硬改成一个千篇一律的模板站，而是整理成更完整的个人主页。"
+            data-en="My public work already points in a clear direction: federated learning, structured CS archives, AI notes, and practical tooling."
+            data-zh="我的公开作品已经有很清晰的脉络：联邦学习、系统化的 CS 学习资料、AI 笔记，以及偏实用的工具和工程尝试。"
           ></p>
 
           <div class="tag-cloud">
@@ -1308,11 +1378,6 @@
             <div class="section-kicker" data-i18n data-en="/ current focus" data-zh="/ 当前方向"></div>
             <h2 data-i18n data-en="What I work on" data-zh="我主要在做什么"></h2>
           </div>
-          <p
-            data-i18n
-            data-en="These threads show up repeatedly across the repositories and profile writing, so they form the core identity of the site."
-            data-zh="这些主题在仓库内容和主页介绍里反复出现，因此它们构成了这个网站的核心身份。"
-          ></p>
         </div>
 
         <div class="focus-grid">
@@ -1354,26 +1419,32 @@
             <div class="section-kicker" data-i18n data-en="/ selected repositories" data-zh="/ 精选仓库"></div>
             <h2 data-i18n data-en="Project wall" data-zh="项目墙"></h2>
           </div>
-          <p
-            data-i18n
-            data-en="A curated project wall synced with GitHub and grouped by direction."
-            data-zh="从 GitHub 同步并按方向整理的精选项目。"
-          ></p>
         </div>
 
         <div class="filter-row">
           <div class="filter-bar" id="filter-bar">
-            <button type="button" class="active" data-filter="all" data-i18n data-en="All" data-zh="全部"></button>
-            <button type="button" data-filter="research" data-i18n data-en="Research" data-zh="研究"></button>
-            <button type="button" data-filter="notes" data-i18n data-en="Notes" data-zh="笔记"></button>
-            <button type="button" data-filter="tools" data-i18n data-en="Tools" data-zh="工具"></button>
+            <button type="button" class="active" data-filter="all">
+              <span data-i18n data-en="All" data-zh="全部"></span>
+              <span class="filter-count" data-filter-count="all">0</span>
+            </button>
+            <button type="button" data-filter="featured">
+              <span data-i18n data-en="Featured" data-zh="精选"></span>
+              <span class="filter-count" data-filter-count="featured">0</span>
+            </button>
+            <button type="button" data-filter="research">
+              <span data-i18n data-en="Research" data-zh="研究"></span>
+              <span class="filter-count" data-filter-count="research">0</span>
+            </button>
+            <button type="button" data-filter="notes">
+              <span data-i18n data-en="Notes" data-zh="笔记"></span>
+              <span class="filter-count" data-filter-count="notes">0</span>
+            </button>
+            <button type="button" data-filter="tools">
+              <span data-i18n data-en="Tools" data-zh="工具"></span>
+              <span class="filter-count" data-filter-count="tools">0</span>
+            </button>
           </div>
-          <div
-            class="filter-caption"
-            data-i18n
-            data-en="Filter by research, notes, or tools."
-            data-zh="按研究、笔记或工具筛选。"
-          ></div>
+          <div class="filter-caption" id="filter-status"></div>
         </div>
 
         <div class="project-grid" id="project-grid"></div>
@@ -1392,11 +1463,6 @@
             <div class="section-kicker" data-i18n data-en="/ roadmap and interests" data-zh="/ 路线和兴趣"></div>
             <h2 data-i18n data-en="Forward motion" data-zh="下一步方向"></h2>
           </div>
-          <p
-            data-i18n
-            data-en="This is a compressed version of the goals and interests already visible in your GitHub profile README."
-            data-zh="这里把你 GitHub 主页 README 里已经体现出来的目标和兴趣，压缩成了更适合网站阅读的形式。"
-          ></p>
         </div>
 
         <div class="timeline">
@@ -1584,6 +1650,28 @@
       updated: {
         en: "Updated",
         zh: "更新于"
+      },
+      filterStatus: {
+        en: (count) => `${count} shown`,
+        zh: (count) => `当前显示 ${count} 项`
+      },
+      category: {
+        featured: {
+          en: "Featured",
+          zh: "精选"
+        },
+        research: {
+          en: "Research",
+          zh: "研究"
+        },
+        notes: {
+          en: "Notes",
+          zh: "笔记"
+        },
+        tools: {
+          en: "Tools",
+          zh: "工具"
+        }
       }
     };
 
@@ -1632,6 +1720,7 @@
       });
 
       renderProjects();
+      updateFilterMeta();
     }
 
     function buildRepoCard(repo) {
@@ -1640,6 +1729,8 @@
       const color = languageColors[language] || "#59f7a8";
       const updatedLabel = uiText.updated[currentLang];
       const repoUrl = repo.html_url || `https://github.com/${username}/${repo.name}`;
+      const categoryLabel = uiText.category[repo.category][currentLang];
+      const featuredLabel = uiText.category.featured[currentLang];
 
       return `
         <article class="project-card ${repo.featured ? "featured" : ""}" data-category="${repo.category}">
@@ -1650,21 +1741,53 @@
           </div>
           <h3>${details.title}</h3>
           <p>${details.description}</p>
-          <div class="project-links">
-            <a href="${repoUrl}" target="_blank" rel="noreferrer">${uiText.projectPrimary[currentLang]}</a>
-            <a href="${repoUrl}" target="_blank" rel="noreferrer">${uiText.projectSecondary[currentLang]}</a>
+          <div class="project-footer">
+            <div class="project-category">${repo.featured ? `${featuredLabel} · ${categoryLabel}` : categoryLabel}</div>
+            <div class="project-links">
+              <a href="${repoUrl}" target="_blank" rel="noreferrer">${uiText.projectPrimary[currentLang]}</a>
+              <a href="${repoUrl}" target="_blank" rel="noreferrer">${uiText.projectSecondary[currentLang]}</a>
+            </div>
           </div>
         </article>
       `;
     }
 
+    function getFilteredProjects() {
+      return projectState.filter((repo) => {
+        if (activeFilter === "all") return true;
+        if (activeFilter === "featured") return repo.featured;
+        return repo.category === activeFilter;
+      });
+    }
+
+    function updateFilterMeta() {
+      const counts = {
+        all: projectState.length,
+        featured: projectState.filter((repo) => repo.featured).length,
+        research: projectState.filter((repo) => repo.category === "research").length,
+        notes: projectState.filter((repo) => repo.category === "notes").length,
+        tools: projectState.filter((repo) => repo.category === "tools").length
+      };
+
+      Object.entries(counts).forEach(([key, value]) => {
+        const node = document.querySelector(`[data-filter-count="${key}"]`);
+        if (node) node.textContent = String(value);
+      });
+
+      const status = document.getElementById("filter-status");
+      if (status) {
+        status.textContent = uiText.filterStatus[currentLang](getFilteredProjects().length);
+      }
+    }
+
     function renderProjects() {
       const grid = document.getElementById("project-grid");
       const empty = document.getElementById("empty-state");
-      const filtered = projectState.filter((repo) => activeFilter === "all" || repo.category === activeFilter);
+      const filtered = getFilteredProjects();
 
       grid.innerHTML = filtered.map(buildRepoCard).join("");
       empty.style.display = filtered.length ? "none" : "block";
+      updateFilterMeta();
 
       if (window.gsap) {
         gsap.fromTo(
