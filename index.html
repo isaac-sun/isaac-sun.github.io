@@ -1356,8 +1356,8 @@
           </div>
           <p
             data-i18n
-            data-en="Projects are fetched from GitHub when available, then enhanced with bilingual descriptions and filters so the collection reads like a deliberate portfolio."
-            data-zh="项目会优先从 GitHub 获取实时信息，再补上双语描述和筛选器，让仓库列表更像一个经过设计的作品集。"
+            data-en="A curated project wall synced with GitHub and grouped by direction."
+            data-zh="从 GitHub 同步并按方向整理的精选项目。"
           ></p>
         </div>
 
@@ -1371,8 +1371,8 @@
           <div
             class="filter-caption"
             data-i18n
-            data-en="Filter by direction to highlight different sides of the profile."
-            data-zh="按方向筛选，分别看研究、笔记和工具侧重点。"
+            data-en="Filter by research, notes, or tools."
+            data-zh="按研究、笔记或工具筛选。"
           ></div>
         </div>
 
@@ -1472,7 +1472,7 @@
   <script>
     const username = "isaac-sun";
     const storedLang = localStorage.getItem("site-lang");
-    const defaultLang = storedLang || (((navigator.language || "").toLowerCase().startsWith("zh")) ? "zh" : "en");
+    const defaultLang = storedLang || "zh";
     let currentLang = defaultLang;
     let activeFilter = "all";
     let latestPushAt = null;
