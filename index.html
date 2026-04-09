@@ -1,10 +1,2061 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Welcome</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yinan SUN | Personal Site</title>
+  <meta
+    name="description"
+    content="Yinan SUN's bilingual personal website: federated learning, AI systems, public notes, and shipped projects."
+  >
+  <meta name="theme-color" content="#08101f">
+  <meta property="og:title" content="Yinan SUN | isaac-sun">
+  <meta
+    property="og:description"
+    content="Bilingual personal site with live GitHub data, animated sections, and curated projects."
+  >
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/184475888?v=4">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Manrope:wght@400;500;700;800&amp;display=swap"
+    rel="stylesheet"
+  >
+  <link
+    rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2308101f'/%3E%3Cpath d='M16 18h32v6H16zm0 11h22v6H16zm0 11h32v6H16z' fill='%2359f7a8'/%3E%3C/svg%3E"
+  >
+  <style>
+    :root {
+      --bg: #08101f;
+      --bg-2: #0d1730;
+      --surface: rgba(12, 20, 36, 0.72);
+      --surface-strong: rgba(10, 18, 33, 0.9);
+      --glass: rgba(255, 255, 255, 0.04);
+      --line: rgba(168, 248, 214, 0.14);
+      --text: #f6f8fc;
+      --muted: #98a8c0;
+      --accent: #59f7a8;
+      --accent-2: #56c8ff;
+      --accent-3: #ffc76d;
+      --danger: #ff6f86;
+      --success: #bfff7c;
+      --radius: 24px;
+      --radius-sm: 16px;
+      --shadow: 0 18px 70px rgba(0, 0, 0, 0.32);
+      --max-width: 1220px;
+      --nav-height: 72px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Manrope", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 8% 10%, rgba(89, 247, 168, 0.16), transparent 24%),
+        radial-gradient(circle at 86% 12%, rgba(86, 200, 255, 0.16), transparent 20%),
+        radial-gradient(circle at 50% 100%, rgba(255, 199, 109, 0.14), transparent 26%),
+        linear-gradient(180deg, #08101f 0%, #0a1221 42%, #060b15 100%);
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(circle at center, black 42%, transparent 90%);
+      opacity: 0.65;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(135deg, rgba(89, 247, 168, 0.07), transparent 30%),
+        linear-gradient(315deg, rgba(86, 200, 255, 0.06), transparent 28%);
+      mix-blend-mode: screen;
+      opacity: 0.8;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      width: min(var(--max-width), calc(100vw - 28px));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .nav {
+      position: sticky;
+      top: 16px;
+      z-index: 20;
+      margin-top: 16px;
+      min-height: var(--nav-height);
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      border-radius: 999px;
+      background: rgba(8, 15, 28, 0.68);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #04110b;
+      font-weight: 800;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+      background: linear-gradient(135deg, var(--accent), #d7ff72);
+      box-shadow: 0 10px 30px rgba(89, 247, 168, 0.28);
+      flex: 0 0 auto;
+    }
+
+    .brand-copy {
+      min-width: 0;
+    }
+
+    .brand-title {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.92rem;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .brand-subtitle {
+      margin-top: 2px;
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.94rem;
+      transition: color 180ms ease, transform 180ms ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      gap: 4px;
+      padding: 4px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .lang-switch button {
+      cursor: pointer;
+      border: 0;
+      color: var(--muted);
+      background: transparent;
+      border-radius: 999px;
+      padding: 8px 12px;
+      min-width: 58px;
+      transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+    }
+
+    .lang-switch button.active {
+      color: #04120c;
+      background: linear-gradient(135deg, var(--accent), #d7ff72);
+      box-shadow: 0 8px 18px rgba(89, 247, 168, 0.2);
+    }
+
+    main {
+      padding: 34px 0 52px;
+    }
+
+    section {
+      margin-top: 26px;
+    }
+
+    .panel {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(14, 22, 40, 0.88), rgba(8, 14, 25, 0.88));
+      box-shadow: var(--shadow);
+    }
+
+    .panel::after {
+      content: "";
+      position: absolute;
+      right: -60px;
+      bottom: -80px;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(89, 247, 168, 0.14), transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr 0.92fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .hero-copy {
+      position: relative;
+      padding: 34px;
+      isolation: isolate;
+    }
+
+    .hero-particles {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      opacity: 0.92;
+      z-index: 0;
+    }
+
+    .hero-copy > :not(.hero-particles) {
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 13px;
+      border-radius: 999px;
+      background: rgba(89, 247, 168, 0.08);
+      border: 1px solid rgba(89, 247, 168, 0.18);
+      color: #baf8d8;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.84rem;
+    }
+
+    .framework-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(86, 200, 255, 0.08);
+      border: 1px solid rgba(86, 200, 255, 0.18);
+      color: #c5ecff;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.8rem;
+    }
+
+    .hero h1 {
+      margin: 20px 0 14px;
+      font-size: clamp(3.1rem, 7vw, 6.2rem);
+      line-height: 0.92;
+      letter-spacing: -0.06em;
+      max-width: 10ch;
+    }
+
+    .hero-subtitle {
+      margin: 0 0 18px;
+      color: #c9f7de;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.96rem;
+    }
+
+    .hero-lead {
+      margin: 0;
+      max-width: 58ch;
+      color: var(--muted);
+      font-size: 1.08rem;
+      line-height: 1.82;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .button,
+    .button-secondary {
+      min-height: 50px;
+      padding: 0 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .button {
+      color: #04120c;
+      background: linear-gradient(135deg, var(--accent), #d7ff72);
+      box-shadow: 0 16px 34px rgba(89, 247, 168, 0.22);
+    }
+
+    .button-secondary {
+      color: var(--text);
+      border: 1px solid rgba(255, 255, 255, 0.11);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .button:hover,
+    .button-secondary:hover {
+      transform: translateY(-2px);
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .tag {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #dce6f5;
+      font-size: 0.9rem;
+    }
+
+    .hero-aside {
+      padding: 24px;
+      display: grid;
+      grid-template-rows: auto auto;
+      gap: 18px;
+    }
+
+    .avatar-stage {
+      position: relative;
+      min-height: 370px;
+      perspective: 1200px;
+      transform-style: preserve-3d;
+      border-radius: calc(var(--radius) - 4px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background:
+        radial-gradient(circle at 30% 30%, rgba(89, 247, 168, 0.14), transparent 34%),
+        radial-gradient(circle at 75% 22%, rgba(86, 200, 255, 0.14), transparent 28%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+    }
+
+    .avatar-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+      background-size: 30px 30px;
+      mask-image: radial-gradient(circle at center, black 40%, transparent 82%);
+      opacity: 0.34;
+    }
+
+    .avatar-stage::after {
+      content: "";
+      position: absolute;
+      inset: -20%;
+      background:
+        radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.16), transparent 24%);
+      opacity: 0.7;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .avatar-glow {
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, rgba(89, 247, 168, 0.2), rgba(86, 200, 255, 0.12), transparent 68%);
+      filter: blur(18px);
+    }
+
+    .orbit,
+    .orbit.orbit-2 {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+    }
+
+    .orbit {
+      width: 280px;
+      height: 280px;
+    }
+
+    .orbit.orbit-2 {
+      width: 340px;
+      height: 340px;
+      border-style: dashed;
+      border-color: rgba(86, 200, 255, 0.14);
+    }
+
+    .orbit::before,
+    .orbit.orbit-2::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      width: 10px;
+      height: 10px;
+      margin-top: -5px;
+      margin-left: -5px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 18px rgba(89, 247, 168, 0.7);
+    }
+
+    .orbit.orbit-2::before {
+      background: var(--accent-2);
+      box-shadow: 0 0 18px rgba(86, 200, 255, 0.6);
+    }
+
+    .avatar-wrap {
+      position: relative;
+      width: 196px;
+      height: 196px;
+      border-radius: 38px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      box-shadow:
+        0 20px 48px rgba(0, 0, 0, 0.35),
+        0 0 0 10px rgba(255, 255, 255, 0.03);
+      z-index: 2;
+      transform: rotate(-4deg);
+      transform-style: preserve-3d;
+    }
+
+    .avatar-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .floating-badge {
+      position: absolute;
+      z-index: 3;
+      padding: 10px 12px;
+      border-radius: 999px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.78rem;
+      color: var(--text);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(7, 13, 24, 0.76);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.26);
+      white-space: nowrap;
+      transform-style: preserve-3d;
+    }
+
+    .badge-a {
+      top: 54px;
+      left: 32px;
+    }
+
+    .badge-b {
+      top: 82px;
+      right: 26px;
+    }
+
+    .badge-c {
+      bottom: 48px;
+      left: 50px;
+    }
+
+    .badge-d {
+      bottom: 78px;
+      right: 22px;
+    }
+
+    .profile-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .micro-card,
+    .stat-card,
+    .focus-card,
+    .project-card,
+    .timeline-card {
+      padding: 16px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .micro-card-label,
+    .section-kicker,
+    .stat-label,
+    .terminal-label,
+    .repo-meta,
+    .footer-copy,
+    .eyebrow,
+    .framework-pill,
+    .filter-bar button {
+      font-family: "IBM Plex Mono", monospace;
+    }
+
+    .micro-card-label,
+    .stat-label,
+    .repo-meta,
+    .footer-copy {
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .micro-card strong,
+    .stat-value {
+      display: block;
+      margin-top: 8px;
+      font-size: 1.3rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text);
+    }
+
+    .terminal {
+      padding: 20px;
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: linear-gradient(180deg, rgba(4, 10, 20, 0.98), rgba(8, 14, 24, 0.92));
+    }
+
+    .terminal-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .dots span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: block;
+    }
+
+    .dots span:nth-child(1) {
+      background: #ff5f56;
+    }
+
+    .dots span:nth-child(2) {
+      background: #ffbd2e;
+    }
+
+    .dots span:nth-child(3) {
+      background: #27c93f;
+    }
+
+    .terminal pre {
+      margin: 0;
+      white-space: pre-wrap;
+      overflow: auto;
+      color: #e3ecfd;
+      font: 0.92rem/1.8 "IBM Plex Mono", monospace;
+    }
+
+    .terminal .accent {
+      color: var(--accent);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 16px;
+    }
+
+    .section-head h2 {
+      margin: 8px 0 0;
+      font-size: clamp(2rem, 3.2vw, 3.2rem);
+      letter-spacing: -0.05em;
+    }
+
+    .section-kicker {
+      color: #c8f8dd;
+      font-size: 0.82rem;
+    }
+
+    .section-head p {
+      max-width: 58ch;
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .stat-value {
+      font-size: 1.78rem;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .about-copy {
+      padding: 28px;
+    }
+
+    .about-copy h2 {
+      margin: 12px 0 14px;
+      font-size: clamp(2rem, 3vw, 2.85rem);
+      letter-spacing: -0.045em;
+    }
+
+    .about-copy p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .focus-card h3,
+    .project-card h3,
+    .timeline-card h3 {
+      margin: 12px 0 10px;
+      font-size: 1.16rem;
+    }
+
+    .focus-card p,
+    .project-card p,
+    .timeline-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .focus-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      color: #09140f;
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent), #d7ff72);
+      box-shadow: 0 12px 24px rgba(89, 247, 168, 0.16);
+    }
+
+    .filter-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .filter-bar button {
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--muted);
+      padding: 10px 14px;
+      border-radius: 999px;
+      transition: color 180ms ease, background 180ms ease, transform 180ms ease, border-color 180ms ease;
+    }
+
+    .filter-bar button:hover {
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .filter-bar button.active {
+      color: #04120c;
+      background: linear-gradient(135deg, var(--accent), #d7ff72);
+      border-color: transparent;
+      box-shadow: 0 12px 24px rgba(89, 247, 168, 0.18);
+    }
+
+    .filter-caption {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      perspective: 1400px;
+    }
+
+    .project-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 250px;
+      gap: 14px;
+      overflow: hidden;
+      transform-style: preserve-3d;
+      transform:
+        perspective(1400px)
+        rotateX(var(--rx, 0deg))
+        rotateY(var(--ry, 0deg))
+        translate3d(0, var(--lift, 0px), 0);
+      transition:
+        transform 220ms ease,
+        border-color 220ms ease,
+        background 220ms ease,
+        box-shadow 220ms ease;
+    }
+
+    .project-card:hover {
+      --lift: -6px;
+      border-color: rgba(89, 247, 168, 0.18);
+      background: linear-gradient(180deg, rgba(89, 247, 168, 0.08), rgba(255, 255, 255, 0.03));
+      box-shadow: 0 20px 44px rgba(0, 0, 0, 0.24);
+    }
+
+    .project-card.featured {
+      border-color: rgba(86, 200, 255, 0.18);
+      background: linear-gradient(180deg, rgba(86, 200, 255, 0.08), rgba(255, 255, 255, 0.03));
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      background:
+        radial-gradient(circle at var(--px, 50%) var(--py, 50%), rgba(255, 255, 255, 0.18), transparent 24%);
+      opacity: var(--glow, 0);
+      transition: opacity 220ms ease;
+      pointer-events: none;
+    }
+
+    .project-card > * {
+      position: relative;
+      z-index: 1;
+      transform: translateZ(18px);
+    }
+
+    .repo-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 0.8rem;
+      color: #cad4e7;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .language-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-2);
+      display: inline-block;
+    }
+
+    .project-links {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: auto;
+    }
+
+    .project-links a {
+      font-weight: 700;
+      color: #d7fff0;
+    }
+
+    .project-links a:last-child {
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .empty-state {
+      display: none;
+      padding: 22px;
+      border-radius: 20px;
+      border: 1px dashed rgba(255, 255, 255, 0.14);
+      color: var(--muted);
+      text-align: center;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .timeline-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .timeline-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .timeline-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(180deg, var(--accent), transparent);
+    }
+
+    .footer {
+      padding: 16px 0 62px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .footer-copy {
+      line-height: 1.8;
+    }
+
+    .reveal-on-scroll {
+      will-change: transform, opacity;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .project-card,
+      .button,
+      .button-secondary,
+      .nav-links a,
+      .filter-bar button {
+        transition: none;
+      }
+    }
+
+    @media (max-width: 1120px) {
+      .hero,
+      .about,
+      .timeline {
+        grid-template-columns: 1fr;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .focus-grid,
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 820px) {
+      .nav {
+        border-radius: 28px;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-right {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .profile-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .filter-row,
+      .section-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        width: min(var(--max-width), calc(100vw - 18px));
+      }
+
+      .hero-copy,
+      .hero-aside,
+      .about-copy,
+      .terminal,
+      .focus-card,
+      .project-card,
+      .timeline-card,
+      .stat-card {
+        padding: 18px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .button,
+      .button-secondary {
+        width: 100%;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .avatar-stage {
+        min-height: 320px;
+      }
+
+      .avatar-wrap {
+        width: 170px;
+        height: 170px;
+      }
+
+      .orbit {
+        width: 230px;
+        height: 230px;
+      }
+
+      .orbit.orbit-2 {
+        width: 290px;
+        height: 290px;
+      }
+
+      .badge-a,
+      .badge-b,
+      .badge-c,
+      .badge-d {
+        transform: scale(0.92);
+      }
+
+      .badge-a {
+        left: 8px;
+      }
+
+      .badge-b {
+        right: 8px;
+      }
+
+      .badge-c {
+        left: 18px;
+      }
+
+      .badge-d {
+        right: 8px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <h1>Hello, this is my GitHub Pages!</h1>
+  <div class="page">
+    <nav class="nav">
+      <div class="brand">
+        <span class="brand-mark">YS</span>
+        <div class="brand-copy">
+          <div class="brand-title">isaac-sun.github.io</div>
+          <div
+            class="brand-subtitle"
+            data-i18n
+            data-en="Bilingual personal website"
+            data-zh="中英双语个人网站"
+          ></div>
+        </div>
+      </div>
+
+      <div class="nav-right">
+        <div class="nav-links">
+          <a href="#about" data-i18n data-en="About" data-zh="关于"></a>
+          <a href="#focus" data-i18n data-en="Focus" data-zh="方向"></a>
+          <a href="#projects" data-i18n data-en="Projects" data-zh="项目"></a>
+          <a href="#roadmap" data-i18n data-en="Roadmap" data-zh="规划"></a>
+          <a href="#contact" data-i18n data-en="Contact" data-zh="联系"></a>
+        </div>
+
+        <div class="lang-switch" aria-label="Language switcher">
+          <button type="button" class="active" data-lang-button="en">EN</button>
+          <button type="button" data-lang-button="zh">中文</button>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section class="hero">
+        <article class="panel hero-copy reveal-on-scroll" data-parallax-root>
+          <canvas class="hero-particles" id="hero-particles" aria-hidden="true"></canvas>
+          <div class="eyebrow-row">
+            <span class="eyebrow" data-parallax="8">$ whoami --verbose</span>
+            <span class="framework-pill" data-parallax="12">GSAP + ScrollTrigger + GitHub API</span>
+          </div>
+
+          <h1 data-parallax="16">Yinan SUN</h1>
+          <p
+            class="hero-subtitle"
+            data-parallax="12"
+            data-i18n
+            data-en="Federated learning researcher · AI systems learner · full-stack builder"
+            data-zh="联邦学习研究者 · AI 系统学习者 · 全栈构建者"
+          ></p>
+          <p
+            class="hero-lead"
+            data-parallax="10"
+            data-i18n
+            data-en="I like work that starts from first principles and ends in something visible: papers, experiments, notes, interfaces, or tools. This page turns my GitHub profile into a sharper personal site with bilingual content and live project signals."
+            data-zh="我偏爱那种从第一性原理出发、最终能落成可见成果的工作：论文、实验、笔记、界面或工具。这个页面把我的 GitHub 主页整理成一个更完整的个人网站，支持中英双语，也会同步公开项目动态。"
+          ></p>
+
+          <div class="hero-actions" data-parallax="8">
+            <a
+              class="button"
+              href="https://github.com/isaac-sun"
+              target="_blank"
+              rel="noreferrer"
+              data-i18n
+              data-en="Explore GitHub"
+              data-zh="查看 GitHub"
+            ></a>
+            <a
+              class="button-secondary"
+              href="#projects"
+              data-i18n
+              data-en="See selected work"
+              data-zh="看精选项目"
+            ></a>
+          </div>
+
+          <div class="tag-list" data-parallax="6">
+            <span class="tag">Federated Learning</span>
+            <span class="tag">AI Systems</span>
+            <span class="tag">CS Notes</span>
+            <span class="tag">Research</span>
+            <span class="tag">Engineering</span>
+            <span class="tag">Open Learning</span>
+          </div>
+        </article>
+
+        <aside class="panel hero-aside reveal-on-scroll">
+          <div class="avatar-stage" id="avatar-stage" data-parallax-root>
+            <div class="avatar-grid"></div>
+            <div class="avatar-glow"></div>
+            <div class="orbit"></div>
+            <div class="orbit orbit-2"></div>
+
+            <div
+              class="floating-badge badge-a"
+              data-parallax="22"
+              data-i18n
+              data-en="fed learning"
+              data-zh="联邦学习"
+            ></div>
+            <div
+              class="floating-badge badge-b"
+              data-parallax="16"
+              data-i18n
+              data-en="systems"
+              data-zh="系统方向"
+            ></div>
+            <div
+              class="floating-badge badge-c"
+              data-parallax="18"
+              data-i18n
+              data-en="builder mode"
+              data-zh="构建模式"
+            ></div>
+            <div
+              class="floating-badge badge-d"
+              data-parallax="14"
+              data-i18n
+              data-en="public notes"
+              data-zh="公开笔记"
+            ></div>
+
+            <div class="avatar-wrap" id="avatar-wrap" data-parallax="28">
+              <img
+                src="https://avatars.githubusercontent.com/u/184475888?v=4"
+                alt="Avatar of Yinan SUN"
+              >
+            </div>
+          </div>
+
+          <div class="profile-strip">
+            <div class="micro-card">
+              <div class="micro-card-label" data-i18n data-en="Location" data-zh="所在地"></div>
+              <strong>Ningbo</strong>
+            </div>
+            <div class="micro-card">
+              <div class="micro-card-label" data-i18n data-en="School" data-zh="学校"></div>
+              <strong>UNNC</strong>
+            </div>
+            <div class="micro-card">
+              <div class="micro-card-label" data-i18n data-en="Mode" data-zh="状态"></div>
+              <strong data-i18n data-en="shipping" data-zh="持续构建"></strong>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="reveal-on-scroll">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker" data-i18n data-en="/ live signals" data-zh="/ 实时信号"></div>
+            <h2 data-i18n data-en="GitHub in motion" data-zh="动态 GitHub 档案"></h2>
+          </div>
+          <p
+            data-i18n
+            data-en="Instead of freezing the page into a static resume, this section reads public GitHub data and keeps the site close to the actual account state."
+            data-zh="这里不是把页面做成静态简历，而是读取公开 GitHub 数据，让网站尽量接近账号当前真实状态。"
+          ></p>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-label" data-i18n data-en="Public Repos" data-zh="公开仓库"></div>
+            <div class="stat-value" id="stat-repos">--</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label" data-i18n data-en="Followers" data-zh="关注者"></div>
+            <div class="stat-value" id="stat-followers">--</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label" data-i18n data-en="Following" data-zh="正在关注"></div>
+            <div class="stat-value" id="stat-following">--</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label" data-i18n data-en="Latest Push" data-zh="最近更新"></div>
+            <div class="stat-value" id="stat-updated" style="font-size:1.05rem;">--</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="about" id="about">
+        <article class="panel terminal reveal-on-scroll">
+          <div class="terminal-head">
+            <div class="dots" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <span class="terminal-label">cat learning-philosophy.md</span>
+          </div>
+          <pre
+            id="philosophy-terminal"
+            data-i18n-html
+            data-en="I care about <span class='accent'>understanding</span>, not just collecting tools.
+
+- Derive formulas instead of copying them
+- Build implementations from scratch when possible
+- Connect mathematics with systems and code
+- Keep public notes as a durable learning archive"
+            data-zh="我在意的是<span class='accent'>理解本身</span>，而不只是堆工具。
+
+- 尽量自己推导，而不是照抄公式
+- 能从零实现时，就不只停留在阅读
+- 把数学、系统和代码联系起来
+- 用公开笔记把长期学习沉淀下来"
+          ></pre>
+        </article>
+
+        <article class="panel about-copy reveal-on-scroll">
+          <div class="section-kicker" data-i18n data-en="/ context" data-zh="/ 背景"></div>
+          <h2
+            data-i18n
+            data-en="A profile shaped by research, systems thinking, and visible output"
+            data-zh="一个由研究、系统思维和可见产出共同塑造的主页"
+          ></h2>
+          <p
+            data-i18n
+            data-en="Your public repositories already show a strong pattern: federated learning, structured CS learning archives, AI notes, and practical tooling. I kept that identity and turned it into a more polished personal front page instead of replacing it with a generic portfolio theme."
+            data-zh="你的公开仓库已经有很清晰的脉络：联邦学习、系统化的 CS 学习资料、AI 笔记，以及偏实用的工具和工程尝试。我保留了这种气质，没有把它硬改成一个千篇一律的模板站，而是整理成更完整的个人主页。"
+          ></p>
+
+          <div class="tag-cloud">
+            <span class="tag">Python</span>
+            <span class="tag">C</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">SQL</span>
+            <span class="tag">LaTeX</span>
+            <span class="tag">React</span>
+            <span class="tag">Vue</span>
+            <span class="tag">Docker</span>
+          </div>
+        </article>
+      </section>
+
+      <section class="reveal-on-scroll" id="focus">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker" data-i18n data-en="/ current focus" data-zh="/ 当前方向"></div>
+            <h2 data-i18n data-en="What I work on" data-zh="我主要在做什么"></h2>
+          </div>
+          <p
+            data-i18n
+            data-en="These threads show up repeatedly across the repositories and profile writing, so they form the core identity of the site."
+            data-zh="这些主题在仓库内容和主页介绍里反复出现，因此它们构成了这个网站的核心身份。"
+          ></p>
+        </div>
+
+        <div class="focus-grid">
+          <article class="focus-card reveal-on-scroll">
+            <div class="focus-icon">01</div>
+            <h3 data-i18n data-en="Federated Learning" data-zh="联邦学习"></h3>
+            <p
+              data-i18n
+              data-en="Experiments around decentralized training, evaluation, and model behavior, especially where engineering decisions affect research results."
+              data-zh="围绕去中心化训练、实验评估和模型行为的工作，尤其关注工程实现如何反过来影响研究结果。"
+            ></p>
+          </article>
+
+          <article class="focus-card reveal-on-scroll">
+            <div class="focus-icon">02</div>
+            <h3 data-i18n data-en="AI Learning Systems" data-zh="AI 学习系统"></h3>
+            <p
+              data-i18n
+              data-en="Building reusable notes, examples, and self-study structures that make abstract topics easier to retain and revisit."
+              data-zh="构建可复用的笔记、示例和自学结构，把抽象主题整理成可以反复回看的长期知识体系。"
+            ></p>
+          </article>
+
+          <article class="focus-card reveal-on-scroll">
+            <div class="focus-icon">03</div>
+            <h3 data-i18n data-en="Practical Engineering" data-zh="实用工程"></h3>
+            <p
+              data-i18n
+              data-en="Turning ideas into working interfaces and tools so the loop between theory and shipping stays honest."
+              data-zh="把想法真正做成可运行的界面和工具，让理论和落地之间的循环保持真实。"
+            ></p>
+          </article>
+        </div>
+      </section>
+
+      <section class="reveal-on-scroll" id="projects">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker" data-i18n data-en="/ selected repositories" data-zh="/ 精选仓库"></div>
+            <h2 data-i18n data-en="Project wall" data-zh="项目墙"></h2>
+          </div>
+          <p
+            data-i18n
+            data-en="Projects are fetched from GitHub when available, then enhanced with bilingual descriptions and filters so the collection reads like a deliberate portfolio."
+            data-zh="项目会优先从 GitHub 获取实时信息，再补上双语描述和筛选器，让仓库列表更像一个经过设计的作品集。"
+          ></p>
+        </div>
+
+        <div class="filter-row">
+          <div class="filter-bar" id="filter-bar">
+            <button type="button" class="active" data-filter="all" data-i18n data-en="All" data-zh="全部"></button>
+            <button type="button" data-filter="research" data-i18n data-en="Research" data-zh="研究"></button>
+            <button type="button" data-filter="notes" data-i18n data-en="Notes" data-zh="笔记"></button>
+            <button type="button" data-filter="tools" data-i18n data-en="Tools" data-zh="工具"></button>
+          </div>
+          <div
+            class="filter-caption"
+            data-i18n
+            data-en="Filter by direction to highlight different sides of the profile."
+            data-zh="按方向筛选，分别看研究、笔记和工具侧重点。"
+          ></div>
+        </div>
+
+        <div class="project-grid" id="project-grid"></div>
+        <div
+          class="empty-state"
+          id="empty-state"
+          data-i18n
+          data-en="No repositories match this filter right now."
+          data-zh="当前筛选条件下没有匹配的仓库。"
+        ></div>
+      </section>
+
+      <section class="reveal-on-scroll" id="roadmap">
+        <div class="section-head">
+          <div>
+            <div class="section-kicker" data-i18n data-en="/ roadmap and interests" data-zh="/ 路线和兴趣"></div>
+            <h2 data-i18n data-en="Forward motion" data-zh="下一步方向"></h2>
+          </div>
+          <p
+            data-i18n
+            data-en="This is a compressed version of the goals and interests already visible in your GitHub profile README."
+            data-zh="这里把你 GitHub 主页 README 里已经体现出来的目标和兴趣，压缩成了更适合网站阅读的形式。"
+          ></p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-list">
+            <article class="timeline-card reveal-on-scroll">
+              <h3 data-i18n data-en="Publish stronger research projects" data-zh="发布更完整的研究项目"></h3>
+              <p
+                data-i18n
+                data-en="Turn federated learning experiments into clearer end-to-end repositories with documentation, results, and reproducible structure."
+                data-zh="把联邦学习实验整理成更完整的端到端项目，包含更清晰的文档、结果展示和可复现结构。"
+              ></p>
+            </article>
+            <article class="timeline-card reveal-on-scroll">
+              <h3 data-i18n data-en="Contribute to useful AI tooling" data-zh="参与有用的 AI 工具建设"></h3>
+              <p
+                data-i18n
+                data-en="Move beyond coursework artifacts and contribute code that remains useful in open-source or real-world workflows."
+                data-zh="不只停留在课程产物，而是写出在开源环境或真实工作流里依然有价值的代码。"
+              ></p>
+            </article>
+            <article class="timeline-card reveal-on-scroll">
+              <h3 data-i18n data-en="Keep writing public notes" data-zh="持续写公开技术笔记"></h3>
+              <p
+                data-i18n
+                data-en="Treat notes as long-term infrastructure for learning, explanation, and future research thinking."
+                data-zh="把笔记当成长期学习、表达和未来研究思考的基础设施。"
+              ></p>
+            </article>
+          </div>
+
+          <div class="timeline-list">
+            <article class="timeline-card reveal-on-scroll">
+              <h3 data-i18n data-en="Photography" data-zh="摄影"></h3>
+              <p
+                data-i18n
+                data-en="Visual storytelling and composition already fit the site identity, so the interface borrows some atmosphere from editorial and cinematic layouts."
+                data-zh="视觉叙事和构图本身就和这个网站气质契合，所以界面也借了一些偏编辑感和电影感的视觉方式。"
+              ></p>
+            </article>
+            <article class="timeline-card reveal-on-scroll">
+              <h3 data-i18n data-en="Debate and first-principles thinking" data-zh="辩论与第一性原理思考"></h3>
+              <p
+                data-i18n
+                data-en="Clear argumentation affects how technical choices are made, which is why the writing style here stays direct and structured."
+                data-zh="清晰论证会影响技术决策，所以这里的文案也尽量保持直接、结构化和可辩护。"
+              ></p>
+            </article>
+            <article class="timeline-card reveal-on-scroll">
+              <h3 data-i18n data-en="Cross-cultural communication" data-zh="跨文化沟通"></h3>
+              <p
+                data-i18n
+                data-en="That is also why the site is bilingual instead of forcing one audience language."
+                data-zh="这也是为什么网站做成双语，而不是强迫所有访客只用一种语言阅读。"
+              ></p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="contact">
+      <p
+        class="footer-copy"
+        data-i18n-html
+        data-en="Contact me via <a href='mailto:scyys25@nottingham.edu.cn'>email</a>, <a href='https://www.linkedin.com/in/isaac-sun/' target='_blank' rel='noreferrer'>LinkedIn</a>, or <a href='https://github.com/isaac-sun' target='_blank' rel='noreferrer'>GitHub</a>."
+        data-zh="你可以通过 <a href='mailto:scyys25@nottingham.edu.cn'>邮箱</a>、<a href='https://www.linkedin.com/in/isaac-sun/' target='_blank' rel='noreferrer'>LinkedIn</a> 或 <a href='https://github.com/isaac-sun' target='_blank' rel='noreferrer'>GitHub</a> 联系我。"
+      ></p>
+    </footer>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script>
+    const username = "isaac-sun";
+    const storedLang = localStorage.getItem("site-lang");
+    const defaultLang = storedLang || (((navigator.language || "").toLowerCase().startsWith("zh")) ? "zh" : "en");
+    let currentLang = defaultLang;
+    let activeFilter = "all";
+    let latestPushAt = null;
+
+    const projectDefinitions = [
+      {
+        name: "cs-ai-learning-notes",
+        category: "notes",
+        featured: true,
+        language: "Python",
+        en: {
+          title: "CS AI Learning Notes",
+          description: "A structured and continuously evolving knowledge base for computer science and AI, mixing theory, math foundations, and implementation from scratch."
+        },
+        zh: {
+          title: "CS AI 学习笔记",
+          description: "一个持续更新的计算机科学与人工智能知识库，把理论、数学基础和从零实现整理到同一个长期项目里。"
+        }
+      },
+      {
+        name: "CS-Course",
+        category: "notes",
+        featured: true,
+        language: "Markdown",
+        en: {
+          title: "CS Course Archive",
+          description: "A public archive of university CS study materials, notes, and course resources collected and organized over several academic years."
+        },
+        zh: {
+          title: "CS 课程资料库",
+          description: "一个公开整理的大学计算机课程资料库，汇总了数年学习中的课程文件、笔记和复习资源。"
+        }
+      },
+      {
+        name: "Chest-X-ray-Pneumonia-Classification-with-Centralized---Federated-Learning",
+        category: "research",
+        featured: true,
+        language: "Python",
+        en: {
+          title: "Chest X-ray FL vs Centralized",
+          description: "Experiments comparing centralized and federated learning for chest X-ray pneumonia classification, with a strong research-project flavor."
+        },
+        zh: {
+          title: "胸部 X 光联邦学习对比实验",
+          description: "围绕胸部 X 光肺炎分类任务，对集中式训练和联邦学习进行实验对比，偏研究型项目风格。"
+        }
+      },
+      {
+        name: "IMDB-Sentiment-Classification-with-Federated-Learning",
+        category: "research",
+        featured: false,
+        language: "Python",
+        en: {
+          title: "IMDB Sentiment with Federated Learning",
+          description: "A federated learning workflow for sentiment classification on IMDB, highlighting model training behavior in decentralized settings."
+        },
+        zh: {
+          title: "基于联邦学习的 IMDB 情感分类",
+          description: "一个面向 IMDB 数据集的联邦学习情感分类流程，重点体现分布式训练场景下的模型行为。"
+        }
+      },
+      {
+        name: "GIF-Generator",
+        category: "tools",
+        featured: false,
+        language: "JavaScript",
+        en: {
+          title: "GIF Generator",
+          description: "A lightweight utility-style project centered on generating GIFs, representing the more practical tool-building side of the profile."
+        },
+        zh: {
+          title: "GIF 生成器",
+          description: "一个偏轻量工具型的小项目，聚焦于 GIF 生成，也体现了主页中更偏实用构建的一面。"
+        }
+      },
+      {
+        name: "claude-code",
+        category: "tools",
+        featured: false,
+        language: "JavaScript",
+        en: {
+          title: "Claude Code Experiments",
+          description: "An AI-assisted coding workflow repository that reflects experimentation with developer tooling and practical interface ideas."
+        },
+        zh: {
+          title: "Claude Code 实验",
+          description: "一个围绕 AI 辅助编程工作流的实验仓库，反映了你在开发者工具和实际界面方向上的探索。"
+        }
+      }
+    ];
+
+    const languageColors = {
+      Python: "#56c8ff",
+      JavaScript: "#ffd86b",
+      Markdown: "#59f7a8",
+      HTML: "#ff9566",
+      CSS: "#7cf4d1"
+    };
+
+    const uiText = {
+      projectPrimary: {
+        en: "Open repository",
+        zh: "打开仓库"
+      },
+      projectSecondary: {
+        en: "View on GitHub",
+        zh: "前往 GitHub"
+      },
+      updated: {
+        en: "Updated",
+        zh: "更新于"
+      }
+    };
+
+    let projectState = projectDefinitions.map((item) => ({
+      ...item,
+      html_url: `https://github.com/${username}/${item.name}`,
+      homepage: "",
+      stargazers_count: 0,
+      pushed_at: new Date().toISOString()
+    }));
+
+    function formatDate(isoString, lang = currentLang) {
+      const locale = lang === "zh" ? "zh-CN" : "en-US";
+      return new Intl.DateTimeFormat(locale, {
+        year: "numeric",
+        month: lang === "zh" ? "numeric" : "short",
+        day: "numeric"
+      }).format(new Date(isoString));
+    }
+
+    function setStat(id, value) {
+      const node = document.getElementById(id);
+      if (node) node.textContent = value;
+    }
+
+    function refreshLatestPushStat() {
+      if (!latestPushAt) {
+        setStat("stat-updated", currentLang === "zh" ? "近期" : "Recently");
+        return;
+      }
+      setStat("stat-updated", formatDate(latestPushAt, currentLang));
+    }
+
+    function applyTranslations(lang) {
+      document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+      document.querySelectorAll("[data-i18n]").forEach((node) => {
+        const next = node.dataset[lang];
+        if (typeof next === "string") node.textContent = next;
+      });
+      document.querySelectorAll("[data-i18n-html]").forEach((node) => {
+        const next = node.dataset[lang];
+        if (typeof next === "string") node.innerHTML = next;
+      });
+      document.querySelectorAll("[data-lang-button]").forEach((button) => {
+        button.classList.toggle("active", button.dataset.langButton === lang);
+      });
+
+      renderProjects();
+    }
+
+    function buildRepoCard(repo) {
+      const details = repo[currentLang];
+      const language = repo.language || "Code";
+      const color = languageColors[language] || "#59f7a8";
+      const updatedLabel = uiText.updated[currentLang];
+      const repoUrl = repo.html_url || `https://github.com/${username}/${repo.name}`;
+
+      return `
+        <article class="project-card ${repo.featured ? "featured" : ""}" data-category="${repo.category}">
+          <div class="repo-meta">
+            <span class="pill"><span class="language-dot" style="background:${color};"></span>${language}</span>
+            <span class="pill">★ ${repo.stargazers_count}</span>
+            <span class="pill">${updatedLabel} ${formatDate(repo.pushed_at, currentLang)}</span>
+          </div>
+          <h3>${details.title}</h3>
+          <p>${details.description}</p>
+          <div class="project-links">
+            <a href="${repoUrl}" target="_blank" rel="noreferrer">${uiText.projectPrimary[currentLang]}</a>
+            <a href="${repoUrl}" target="_blank" rel="noreferrer">${uiText.projectSecondary[currentLang]}</a>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderProjects() {
+      const grid = document.getElementById("project-grid");
+      const empty = document.getElementById("empty-state");
+      const filtered = projectState.filter((repo) => activeFilter === "all" || repo.category === activeFilter);
+
+      grid.innerHTML = filtered.map(buildRepoCard).join("");
+      empty.style.display = filtered.length ? "none" : "block";
+
+      if (window.gsap) {
+        gsap.fromTo(
+          "#project-grid .project-card",
+          { opacity: 0, y: 24, scale: 0.98 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.55,
+            stagger: 0.08,
+            ease: "power2.out",
+            clearProps: "transform"
+          }
+        );
+      }
+
+      setupProjectCardTilt();
+    }
+
+    async function loadGitHub() {
+      try {
+        const [profileResponse, reposResponse] = await Promise.all([
+          fetch(`https://api.github.com/users/${username}`),
+          fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=updated`)
+        ]);
+
+        if (!profileResponse.ok || !reposResponse.ok) {
+          throw new Error("GitHub API failed");
+        }
+
+        const profile = await profileResponse.json();
+        const repos = await reposResponse.json();
+        const repoMap = new Map(repos.map((repo) => [repo.name, repo]));
+
+        setStat("stat-repos", profile.public_repos);
+        setStat("stat-followers", profile.followers);
+        setStat("stat-following", profile.following);
+
+        const latestRepo = repos
+          .filter((repo) => !repo.fork)
+          .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at))[0];
+
+        latestPushAt = latestRepo ? latestRepo.pushed_at : null;
+        refreshLatestPushStat();
+
+        projectState = projectDefinitions.map((definition) => {
+          const repo = repoMap.get(definition.name);
+          return {
+            ...definition,
+            html_url: repo ? repo.html_url : `https://github.com/${username}/${definition.name}`,
+            homepage: repo ? repo.homepage : "",
+            stargazers_count: repo ? repo.stargazers_count : 0,
+            pushed_at: repo ? repo.pushed_at : new Date().toISOString(),
+            language: repo && repo.language ? repo.language : definition.language
+          };
+        });
+
+        renderProjects();
+      } catch (error) {
+        setStat("stat-repos", "12+");
+        setStat("stat-followers", "--");
+        setStat("stat-following", "--");
+        latestPushAt = null;
+        refreshLatestPushStat();
+        renderProjects();
+      }
+    }
+
+    function setupFilters() {
+      document.querySelectorAll("#filter-bar [data-filter]").forEach((button) => {
+        button.addEventListener("click", () => {
+          activeFilter = button.dataset.filter;
+          document.querySelectorAll("#filter-bar [data-filter]").forEach((item) => {
+            item.classList.toggle("active", item === button);
+          });
+          renderProjects();
+        });
+      });
+    }
+
+    function setupLanguageSwitcher() {
+      document.querySelectorAll("[data-lang-button]").forEach((button) => {
+        button.addEventListener("click", () => {
+          currentLang = button.dataset.langButton;
+          localStorage.setItem("site-lang", currentLang);
+          applyTranslations(currentLang);
+          refreshLatestPushStat();
+        });
+      });
+    }
+
+    function setupHeroParticles() {
+      const canvas = document.getElementById("hero-particles");
+      const heroPanel = canvas ? canvas.closest(".hero-copy") : null;
+      if (!canvas || !heroPanel) return;
+
+      const context = canvas.getContext("2d");
+      if (!context) return;
+
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const particles = [];
+      let rafId = null;
+      let width = 0;
+      let height = 0;
+      let dpr = 1;
+
+      function resize() {
+        const rect = heroPanel.getBoundingClientRect();
+        width = rect.width;
+        height = rect.height;
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = Math.max(1, Math.floor(width * dpr));
+        canvas.height = Math.max(1, Math.floor(height * dpr));
+        canvas.style.width = width + "px";
+        canvas.style.height = height + "px";
+        context.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+        particles.length = 0;
+        const count = Math.max(18, Math.min(42, Math.floor(width / 26)));
+        for (let i = 0; i < count; i += 1) {
+          particles.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: (Math.random() - 0.5) * 0.22,
+            vy: (Math.random() - 0.5) * 0.22,
+            r: Math.random() * 2.2 + 0.8
+          });
+        }
+      }
+
+      function draw() {
+        context.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < particles.length; i += 1) {
+          const p = particles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+
+          if (p.x < -20) p.x = width + 20;
+          if (p.x > width + 20) p.x = -20;
+          if (p.y < -20) p.y = height + 20;
+          if (p.y > height + 20) p.y = -20;
+
+          context.beginPath();
+          context.fillStyle = i % 3 === 0 ? "rgba(89, 247, 168, 0.8)" : "rgba(86, 200, 255, 0.72)";
+          context.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          context.fill();
+
+          for (let j = i + 1; j < particles.length; j += 1) {
+            const q = particles[j];
+            const dx = p.x - q.x;
+            const dy = p.y - q.y;
+            const distance = Math.hypot(dx, dy);
+            if (distance < 110) {
+              context.beginPath();
+              context.strokeStyle = `rgba(140, 228, 255, ${0.12 * (1 - distance / 110)})`;
+              context.lineWidth = 1;
+              context.moveTo(p.x, p.y);
+              context.lineTo(q.x, q.y);
+              context.stroke();
+            }
+          }
+        }
+
+        if (!reduceMotion) {
+          rafId = window.requestAnimationFrame(draw);
+        }
+      }
+
+      resize();
+      draw();
+      window.addEventListener("resize", resize);
+
+      if (reduceMotion && rafId) {
+        window.cancelAnimationFrame(rafId);
+      }
+    }
+
+    function setupParallax() {
+      if (!window.gsap) return;
+      if (!window.matchMedia("(pointer: fine)").matches) return;
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+      document.querySelectorAll("[data-parallax-root]").forEach((root) => {
+        const items = Array.from(root.querySelectorAll("[data-parallax]"));
+        if (!items.length) return;
+
+        root.addEventListener("pointermove", (event) => {
+          const rect = root.getBoundingClientRect();
+          const relX = (event.clientX - rect.left) / rect.width - 0.5;
+          const relY = (event.clientY - rect.top) / rect.height - 0.5;
+
+          root.style.setProperty("--mx", `${((event.clientX - rect.left) / rect.width) * 100}%`);
+          root.style.setProperty("--my", `${((event.clientY - rect.top) / rect.height) * 100}%`);
+
+          items.forEach((item) => {
+            const depth = Number(item.dataset.parallax || 10);
+            gsap.to(item, {
+              x: relX * depth,
+              y: relY * depth,
+              rotationY: relX * depth * 0.35,
+              rotationX: -relY * depth * 0.35,
+              duration: 0.45,
+              ease: "power2.out",
+              overwrite: "auto"
+            });
+          });
+        });
+
+        root.addEventListener("pointerleave", () => {
+          root.style.setProperty("--mx", "50%");
+          root.style.setProperty("--my", "50%");
+          items.forEach((item) => {
+            gsap.to(item, {
+              x: 0,
+              y: 0,
+              rotationX: 0,
+              rotationY: 0,
+              duration: 0.6,
+              ease: "power3.out",
+              overwrite: "auto"
+            });
+          });
+        });
+      });
+    }
+
+    function setupProjectCardTilt() {
+      if (!window.matchMedia("(pointer: fine)").matches) return;
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+      const activateCard = (card) => {
+        if (card.dataset.tiltBound === "true") return;
+        card.dataset.tiltBound = "true";
+
+        card.addEventListener("pointermove", (event) => {
+          const rect = card.getBoundingClientRect();
+          const px = ((event.clientX - rect.left) / rect.width) * 100;
+          const py = ((event.clientY - rect.top) / rect.height) * 100;
+          const rx = ((event.clientY - rect.top) / rect.height - 0.5) * -12;
+          const ry = ((event.clientX - rect.left) / rect.width - 0.5) * 14;
+
+          card.style.setProperty("--px", `${px}%`);
+          card.style.setProperty("--py", `${py}%`);
+          card.style.setProperty("--rx", `${rx}deg`);
+          card.style.setProperty("--ry", `${ry}deg`);
+          card.style.setProperty("--glow", "1");
+        });
+
+        card.addEventListener("pointerleave", () => {
+          card.style.setProperty("--px", "50%");
+          card.style.setProperty("--py", "50%");
+          card.style.setProperty("--rx", "0deg");
+          card.style.setProperty("--ry", "0deg");
+          card.style.setProperty("--glow", "0");
+        });
+      };
+
+      document.querySelectorAll(".project-card").forEach(activateCard);
+    }
+
+    function setupAnimations() {
+      if (!window.gsap || !window.ScrollTrigger) return;
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.from(".nav", {
+        opacity: 0,
+        y: -22,
+        duration: 0.8,
+        ease: "power3.out"
+      });
+
+      gsap.from(".hero-copy > *", {
+        opacity: 0,
+        y: 22,
+        duration: 0.8,
+        stagger: 0.08,
+        ease: "power3.out",
+        delay: 0.12
+      });
+
+      gsap.from(".hero-aside", {
+        opacity: 0,
+        x: 26,
+        duration: 0.9,
+        ease: "power3.out",
+        delay: 0.2
+      });
+
+      gsap.to(".avatar-glow", {
+        scale: 1.08,
+        opacity: 0.86,
+        duration: 2.6,
+        yoyo: true,
+        repeat: -1,
+        ease: "sine.inOut"
+      });
+
+      gsap.to(".orbit", {
+        rotate: 360,
+        duration: 18,
+        repeat: -1,
+        ease: "none"
+      });
+
+      gsap.to(".orbit-2", {
+        rotate: -360,
+        duration: 26,
+        repeat: -1,
+        ease: "none"
+      });
+
+      gsap.to("#avatar-wrap", {
+        y: -12,
+        rotate: -1,
+        duration: 2.4,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+      });
+
+      gsap.to(".badge-a", {
+        x: 10,
+        y: -8,
+        duration: 2.2,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+      });
+
+      gsap.to(".badge-b", {
+        x: -10,
+        y: 10,
+        duration: 2.8,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+      });
+
+      gsap.to(".badge-c", {
+        x: 8,
+        y: 8,
+        duration: 2.6,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+      });
+
+      gsap.to(".badge-d", {
+        x: -8,
+        y: -10,
+        duration: 2.5,
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut"
+      });
+
+      document.querySelectorAll(".reveal-on-scroll").forEach((element) => {
+        if (element.classList.contains("hero-copy") || element.classList.contains("hero-aside")) return;
+
+        gsap.fromTo(
+          element,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: element,
+              start: "top 82%"
+            }
+          }
+        );
+      });
+    }
+
+    applyTranslations(currentLang);
+    setupFilters();
+    setupLanguageSwitcher();
+    renderProjects();
+
+    window.addEventListener("load", () => {
+      loadGitHub();
+      setupHeroParticles();
+      setupParallax();
+      setupProjectCardTilt();
+      setupAnimations();
+    });
+  </script>
 </body>
 </html>
