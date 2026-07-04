@@ -1,23 +1,46 @@
-<svg width="1200" height="720" viewBox="0 0 1200 720" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1200" height="720" rx="44" fill="#0B1220"/>
-  <rect width="1200" height="720" rx="44" fill="url(#bg)"/>
-  <g opacity="0.18">
-    <circle cx="934" cy="148" r="188" fill="#59F7A8"/>
-    <circle cx="242" cy="568" r="172" fill="#FFC76D"/>
+<svg width="1200" height="675" viewBox="0 0 1200 675" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="675" rx="20" fill="#f8fafc"/>
+  <rect width="1200" height="675" rx="20" fill="url(#bg)"/>
+  <circle cx="920" cy="400" r="220" fill="#2563eb" fill-opacity="0.04"/>
+  <circle cx="180" cy="180" r="100" fill="#3b82f6" fill-opacity="0.04"/>
+  <!-- GIF frames visualization -->
+  <g transform="translate(160, 180)">
+    <rect x="0" y="0" width="90" height="90" rx="8" fill="#2563eb" fill-opacity="0.06" stroke="#2563eb" stroke-width="1.5"/>
+    <circle cx="45" cy="40" r="14" fill="#2563eb" fill-opacity="0.2"/>
+    <circle cx="45" cy="60" r="14" fill="#3b82f6" fill-opacity="0.15"/>
+    <rect x="8" y="78" width="74" height="4" rx="2" fill="#93c5fd" fill-opacity="0.4"/>
   </g>
-  <rect x="118" y="120" width="356" height="480" rx="28" fill="#FFFFFF" fill-opacity="0.05"/>
-  <rect x="168" y="174" width="256" height="332" rx="24" fill="#10192B"/>
-  <rect x="194" y="202" width="204" height="86" rx="18" fill="#56C8FF"/>
-  <rect x="194" y="310" width="204" height="86" rx="18" fill="#59F7A8" fill-opacity="0.86"/>
-  <rect x="194" y="418" width="204" height="62" rx="16" fill="#FFC76D" fill-opacity="0.92"/>
-  <text x="528" y="244" fill="#59F7A8" font-family="'IBM Plex Mono', monospace" font-size="28">small tool / visual output</text>
-  <text x="528" y="332" fill="#F6FAFF" font-family="'Manrope', sans-serif" font-size="80" font-weight="800">GIF</text>
-  <text x="528" y="414" fill="#F6FAFF" font-family="'Manrope', sans-serif" font-size="80" font-weight="800">Generator</text>
-  <text x="528" y="484" fill="#B7C8DC" font-family="'IBM Plex Mono', monospace" font-size="26">frames / export / motion / utility</text>
+  <g transform="translate(280, 200)">
+    <rect x="0" y="0" width="90" height="90" rx="8" fill="#3b82f6" fill-opacity="0.06" stroke="#3b82f6" stroke-width="1.5"/>
+    <circle cx="45" cy="35" r="14" fill="#2563eb" fill-opacity="0.25"/>
+    <circle cx="45" cy="58" r="14" fill="#3b82f6" fill-opacity="0.2"/>
+    <rect x="8" y="78" width="74" height="4" rx="2" fill="#93c5fd" fill-opacity="0.5"/>
+  </g>
+  <g transform="translate(400, 170)">
+    <rect x="0" y="0" width="90" height="90" rx="8" fill="#93c5fd" fill-opacity="0.06" stroke="#93c5fd" stroke-width="1.5"/>
+    <circle cx="45" cy="30" r="14" fill="#2563eb" fill-opacity="0.3"/>
+    <circle cx="45" cy="55" r="14" fill="#3b82f6" fill-opacity="0.25"/>
+    <rect x="8" y="78" width="74" height="4" rx="2" fill="#93c5fd" fill-opacity="0.6"/>
+  </g>
+  <!-- Arrow between frames -->
+  <path d="M256 225 L274 225" stroke="#93c5fd" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M376 235 L394 235" stroke="#93c5fd" stroke-width="2" marker-end="url(#arrow)"/>
+  <!-- Play button -->
+  <g transform="translate(430, 290)">
+    <circle cx="28" cy="28" r="28" fill="#2563eb" fill-opacity="0.12"/>
+    <polygon points="22,18 22,38 38,28" fill="#2563eb" fill-opacity="0.6"/>
+  </g>
+  <text x="560" y="250" fill="#2563eb" font-family="'JetBrains Mono', monospace" font-size="22" font-weight="500">tool · utility · media</text>
+  <text x="560" y="340" fill="#1e293b" font-family="'Inter', sans-serif" font-size="56" font-weight="700">GIF Generator</text>
+  <text x="560" y="410" fill="#1e293b" font-family="'Inter', sans-serif" font-size="28" font-weight="600">Lightweight media creation tool</text>
+  <text x="560" y="470" fill="#64748b" font-family="'Inter', sans-serif" font-size="22">A practical utility project centered on generating and manipulating GIFs</text>
   <defs>
-    <linearGradient id="bg" x1="120" y1="110" x2="1088" y2="636" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#152643"/>
-      <stop offset="1" stop-color="#09111E"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="675" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#eff6ff"/>
+      <stop offset="1" stop-color="#f8fafc"/>
     </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10Z" fill="#93c5fd"/>
+    </marker>
   </defs>
 </svg>
