@@ -4,1226 +4,614 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yinan SUN | Personal Site</title>
-  <meta
-    name="description"
-    content="Yinan SUN's bilingual personal website: federated learning, AI systems, public notes, and shipped projects."
-  >
-  <meta name="theme-color" content="#08101f">
-  <meta property="og:title" content="Yinan SUN | isaac-sun">
-  <meta
-    property="og:description"
-    content="Bilingual personal site with live GitHub data, animated sections, and curated projects."
-  >
+  <meta name="description" content="Yinan SUN — Computer Science with AI student at University of Nottingham.">
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:title" content="Yinan SUN">
+  <meta property="og:description" content="CS with AI student at University of Nottingham. Projects in federated learning, systems, and tools.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://avatars.githubusercontent.com/u/184475888?v=4">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Manrope:wght@400;500;700;800&amp;display=swap"
-    rel="stylesheet"
-  >
-  <link
-    rel="icon"
-    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2308101f'/%3E%3Cpath d='M16 18h32v6H16zm0 11h22v6H16zm0 11h32v6H16z' fill='%2359f7a8'/%3E%3C/svg%3E"
-  >
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231a1a2e'/%3E%3Ctext x='32' y='44' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700' font-size='28'%3EYS%3C/text%3E%3C/svg%3E">
   <style>
     :root {
-      --bg: #08101f;
-      --bg-2: #0d1730;
-      --surface: rgba(12, 20, 36, 0.72);
-      --surface-strong: rgba(10, 18, 33, 0.9);
-      --glass: rgba(255, 255, 255, 0.04);
-      --line: rgba(168, 248, 214, 0.14);
-      --text: #f6f8fc;
-      --muted: #98a8c0;
-      --accent: #59f7a8;
-      --accent-2: #56c8ff;
-      --accent-3: #ffc76d;
-      --danger: #ff6f86;
-      --success: #bfff7c;
-      --radius: 24px;
-      --radius-sm: 16px;
-      --shadow: 0 18px 70px rgba(0, 0, 0, 0.32);
-      --max-width: 1220px;
-      --nav-height: 72px;
+      --bg: #fafafa;
+      --surface: #ffffff;
+      --border: #e5e5e5;
+      --text: #1a1a1a;
+      --text-muted: #666666;
+      --text-light: #8a8a8a;
+      --accent: #2563eb;
+      --accent-light: #eff6ff;
+      --accent-hover: #1d4ed8;
+      --max-width: 960px;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: "Manrope", sans-serif;
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
-      background:
-        radial-gradient(circle at 8% 10%, rgba(89, 247, 168, 0.16), transparent 24%),
-        radial-gradient(circle at 86% 12%, rgba(86, 200, 255, 0.16), transparent 20%),
-        radial-gradient(circle at 50% 100%, rgba(255, 199, 109, 0.14), transparent 26%),
-        linear-gradient(180deg, #08101f 0%, #0a1221 42%, #060b15 100%);
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        linear-gradient(rgba(255, 255, 255, 0.022) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.022) 1px, transparent 1px);
-      background-size: 48px 48px;
-      mask-image: radial-gradient(circle at center, black 42%, transparent 90%);
-      opacity: 0.65;
-    }
-
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background:
-        linear-gradient(135deg, rgba(89, 247, 168, 0.07), transparent 30%),
-        linear-gradient(315deg, rgba(86, 200, 255, 0.06), transparent 28%);
-      mix-blend-mode: screen;
-      opacity: 0.8;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    button,
-    input,
-    textarea,
-    select {
-      font: inherit;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
 
     .page {
-      width: min(var(--max-width), calc(100vw - 28px));
+      width: min(var(--max-width), calc(100vw - 40px));
       margin: 0 auto;
-      position: relative;
-      z-index: 1;
     }
 
+    /* ─── Navigation ─── */
     .nav {
-      position: sticky;
-      top: 16px;
-      z-index: 20;
-      margin-top: 16px;
-      min-height: var(--nav-height);
-      padding: 14px 18px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
-      border-radius: 999px;
-      background: rgba(8, 15, 28, 0.68);
-      border: 1px solid var(--line);
-      backdrop-filter: blur(18px);
-      box-shadow: var(--shadow);
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
-      min-width: 0;
+      gap: 10px;
     }
 
-    .brand-mark {
-      width: 38px;
-      height: 38px;
+    .brand-name {
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-dot {
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
-      display: grid;
-      place-items: center;
-      color: #04110b;
-      font-weight: 800;
-      font-size: 0.95rem;
-      letter-spacing: 0.03em;
-      background: linear-gradient(135deg, var(--accent), #d7ff72);
-      box-shadow: 0 10px 30px rgba(89, 247, 168, 0.28);
-      flex: 0 0 auto;
-    }
-
-    .brand-copy {
-      min-width: 0;
-    }
-
-    .brand-title {
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 0.92rem;
-      color: var(--text);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .brand-subtitle {
-      margin-top: 2px;
-      font-size: 0.84rem;
-      color: var(--muted);
+      background: var(--accent);
     }
 
     .nav-right {
       display: flex;
       align-items: center;
-      gap: 14px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
+      gap: 16px;
     }
 
     .nav-links {
       display: flex;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
+      gap: 20px;
     }
 
     .nav-links a {
-      color: var(--muted);
-      font-size: 0.94rem;
-      transition: color 180ms ease, transform 180ms ease;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 150ms ease;
     }
 
-    .nav-links a:hover {
-      color: var(--text);
-      transform: translateY(-1px);
-    }
+    .nav-links a:hover { color: var(--text); }
 
     .lang-switch {
       display: inline-flex;
-      gap: 4px;
-      padding: 4px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
     }
 
     .lang-switch button {
-      cursor: pointer;
-      border: 0;
-      color: var(--muted);
+      border: none;
       background: transparent;
-      border-radius: 999px;
-      padding: 8px 12px;
-      min-width: 58px;
-      transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+      padding: 6px 12px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      font-family: "JetBrains Mono", monospace;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: background 150ms ease, color 150ms ease;
     }
 
     .lang-switch button.active {
-      color: #04120c;
-      background: linear-gradient(135deg, var(--accent), #d7ff72);
-      box-shadow: 0 8px 18px rgba(89, 247, 168, 0.2);
+      background: var(--accent);
+      color: #fff;
     }
 
-    main {
-      padding: 34px 0 52px;
-    }
-
+    /* ─── Sections ─── */
     section {
-      margin-top: 26px;
+      padding: 48px 0;
+      border-bottom: 1px solid var(--border);
     }
 
-    .panel {
-      position: relative;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: linear-gradient(180deg, rgba(14, 22, 40, 0.88), rgba(8, 14, 25, 0.88));
-      box-shadow: var(--shadow);
+    section:last-of-type { border-bottom: none; }
+
+    .section-label {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
     }
 
-    .panel::after {
-      content: "";
-      position: absolute;
-      right: -60px;
-      bottom: -80px;
-      width: 220px;
-      height: 220px;
-      background: radial-gradient(circle, rgba(89, 247, 168, 0.14), transparent 70%);
-      pointer-events: none;
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+      color: var(--text);
     }
 
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+
+    /* ─── Hero ─── */
     .hero {
       display: grid;
-      grid-template-columns: 1.15fr 0.92fr;
-      gap: 22px;
-      align-items: stretch;
-    }
-
-    .hero-copy {
-      position: relative;
-      padding: 34px;
-      isolation: isolate;
-    }
-
-    .hero-particles {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      opacity: 0.92;
-      z-index: 0;
-    }
-
-    .hero-copy > :not(.hero-particles) {
-      position: relative;
-      z-index: 1;
-    }
-
-    .eyebrow-row {
-      display: flex;
+      grid-template-columns: 1fr auto;
+      gap: 32px;
       align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 13px;
-      border-radius: 999px;
-      background: rgba(89, 247, 168, 0.08);
-      border: 1px solid rgba(89, 247, 168, 0.18);
-      color: #baf8d8;
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 0.84rem;
-    }
-
-    .framework-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(86, 200, 255, 0.08);
-      border: 1px solid rgba(86, 200, 255, 0.18);
-      color: #c5ecff;
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 0.8rem;
+      padding-top: 8px;
     }
 
     .hero h1 {
-      margin: 20px 0 14px;
-      font-size: clamp(3.1rem, 7vw, 6.2rem);
-      line-height: 0.92;
-      letter-spacing: -0.06em;
-      max-width: 10ch;
+      font-size: 2.4rem;
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      line-height: 1.1;
+      margin-bottom: 8px;
     }
 
     .hero-subtitle {
-      margin: 0 0 18px;
-      color: #c9f7de;
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 0.96rem;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
     }
 
     .hero-lead {
-      margin: 0;
-      max-width: 58ch;
-      color: var(--muted);
-      font-size: 1.08rem;
-      line-height: 1.82;
+      color: var(--text-muted);
+      max-width: 56ch;
+      font-size: 0.95rem;
+      margin-bottom: 20px;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 28px;
+      gap: 12px;
     }
 
-    .button,
-    .button-secondary {
-      min-height: 50px;
-      padding: 0 20px;
+    .btn {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 10px;
-      border-radius: 999px;
-      font-weight: 700;
-      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: background 150ms ease, transform 150ms ease;
     }
 
-    .button {
-      color: #04120c;
-      background: linear-gradient(135deg, var(--accent), #d7ff72);
-      box-shadow: 0 16px 34px rgba(89, 247, 168, 0.22);
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
     }
 
-    .button-secondary {
+    .btn-primary:hover {
+      background: var(--accent-hover);
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--border);
       color: var(--text);
-      border: 1px solid rgba(255, 255, 255, 0.11);
-      background: rgba(255, 255, 255, 0.04);
+      background: transparent;
     }
 
-    .button:hover,
-    .button-secondary:hover {
-      transform: translateY(-2px);
+    .btn-secondary:hover {
+      background: var(--accent-light);
     }
 
-    .tag-list {
+    .hero-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--border);
+    }
+
+    .contact-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 24px;
+      gap: 16px;
+      margin-top: 12px;
     }
 
-    .tag {
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.045);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: #dce6f5;
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .contact-item a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .contact-item a:hover { text-decoration: underline; }
+
+    /* ─── Stats ─── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+    }
+
+    .stat-label {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.72rem;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .stat-value {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-top: 4px;
+    }
+
+    /* ─── Entry (education, experience, awards) ─── */
+    .entry-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .entry {
+      padding-left: 16px;
+      border-left: 2px solid var(--border);
+    }
+
+    .entry-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .entry-title {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .entry-subtitle {
+      color: var(--text-muted);
       font-size: 0.9rem;
     }
 
-    .hero-aside {
-      padding: 24px;
-      display: grid;
-      grid-template-rows: auto auto;
-      gap: 18px;
-    }
-
-    .avatar-stage {
-      position: relative;
-      min-height: 370px;
-      perspective: 1200px;
-      transform-style: preserve-3d;
-      border-radius: calc(var(--radius) - 4px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background:
-        radial-gradient(circle at 30% 30%, rgba(89, 247, 168, 0.14), transparent 34%),
-        radial-gradient(circle at 75% 22%, rgba(86, 200, 255, 0.14), transparent 28%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
-      overflow: hidden;
-      display: grid;
-      place-items: center;
-    }
-
-    .avatar-grid {
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-      background-size: 30px 30px;
-      mask-image: radial-gradient(circle at center, black 40%, transparent 82%);
-      opacity: 0.34;
-    }
-
-    .avatar-stage::after {
-      content: "";
-      position: absolute;
-      inset: -20%;
-      background:
-        radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.16), transparent 24%);
-      opacity: 0.7;
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .avatar-glow {
-      position: absolute;
-      width: 340px;
-      height: 340px;
-      border-radius: 50%;
-      background:
-        radial-gradient(circle, rgba(89, 247, 168, 0.2), rgba(86, 200, 255, 0.12), transparent 68%);
-      filter: blur(18px);
-    }
-
-    .orbit,
-    .orbit.orbit-2 {
-      position: absolute;
-      border-radius: 50%;
-      border: 1px solid rgba(255, 255, 255, 0.09);
-    }
-
-    .orbit {
-      width: 280px;
-      height: 280px;
-    }
-
-    .orbit.orbit-2 {
-      width: 340px;
-      height: 340px;
-      border-style: dashed;
-      border-color: rgba(86, 200, 255, 0.14);
-    }
-
-    .orbit::before,
-    .orbit.orbit-2::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 100%;
-      width: 10px;
-      height: 10px;
-      margin-top: -5px;
-      margin-left: -5px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 18px rgba(89, 247, 168, 0.7);
-    }
-
-    .orbit.orbit-2::before {
-      background: var(--accent-2);
-      box-shadow: 0 0 18px rgba(86, 200, 255, 0.6);
-    }
-
-    .avatar-wrap {
-      position: relative;
-      width: 196px;
-      height: 196px;
-      border-radius: 38px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      box-shadow:
-        0 20px 48px rgba(0, 0, 0, 0.35),
-        0 0 0 10px rgba(255, 255, 255, 0.03);
-      z-index: 2;
-      transform: rotate(-4deg);
-      transform-style: preserve-3d;
-    }
-
-    .avatar-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .floating-badge {
-      position: absolute;
-      z-index: 3;
-      padding: 10px 12px;
-      border-radius: 999px;
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 0.78rem;
-      color: var(--text);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(7, 13, 24, 0.76);
-      backdrop-filter: blur(14px);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.26);
+    .entry-meta {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.75rem;
+      color: var(--text-light);
       white-space: nowrap;
-      transform-style: preserve-3d;
     }
 
-    .badge-a {
-      top: 54px;
-      left: 32px;
+    .entry-detail {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+      margin-top: 4px;
     }
 
-    .badge-b {
-      top: 82px;
-      right: 26px;
-    }
-
-    .badge-c {
-      bottom: 48px;
-      left: 50px;
-    }
-
-    .badge-d {
-      bottom: 78px;
-      right: 22px;
-    }
-
-    .profile-strip {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .micro-card,
-    .stat-card,
-    .focus-card,
-    .project-card,
-    .timeline-card {
-      padding: 16px;
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(255, 255, 255, 0.03);
-    }
-
-    .micro-card-label,
-    .section-kicker,
-    .stat-label,
-    .terminal-label,
-    .repo-meta,
-    .footer-copy,
-    .eyebrow,
-    .framework-pill,
-    .filter-bar button {
-      font-family: "IBM Plex Mono", monospace;
-    }
-
-    .micro-card-label,
-    .stat-label,
-    .repo-meta,
-    .footer-copy {
-      color: var(--muted);
-      font-size: 0.78rem;
-    }
-
-    .micro-card strong,
-    .stat-value {
-      display: block;
-      margin-top: 8px;
-      font-size: 1.3rem;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      color: var(--text);
-    }
-
-    .terminal {
-      padding: 20px;
-      border-radius: 22px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: linear-gradient(180deg, rgba(4, 10, 20, 0.98), rgba(8, 14, 24, 0.92));
-    }
-
-    .terminal-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
+    /* ─── Skills ─── */
+    .skill-group {
       margin-bottom: 16px;
     }
 
-    .dots {
+    .skill-group h3 {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .skill-tags {
       display: flex;
+      flex-wrap: wrap;
       gap: 8px;
     }
 
-    .dots span {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      display: block;
-    }
-
-    .dots span:nth-child(1) {
-      background: #ff5f56;
-    }
-
-    .dots span:nth-child(2) {
-      background: #ffbd2e;
-    }
-
-    .dots span:nth-child(3) {
-      background: #27c93f;
-    }
-
-    .terminal pre {
-      margin: 0;
-      white-space: pre-wrap;
-      overflow: auto;
-      color: #e3ecfd;
-      font: 0.92rem/1.8 "IBM Plex Mono", monospace;
-    }
-
-    .terminal .accent {
+    .skill-tag {
+      font-size: 0.85rem;
+      padding: 5px 12px;
+      border-radius: 6px;
+      background: var(--accent-light);
       color: var(--accent);
+      font-weight: 500;
     }
 
-    .section-head {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 18px;
-      margin-bottom: 16px;
-    }
-
-    .section-head h2 {
-      margin: 8px 0 0;
-      font-size: clamp(2rem, 3.2vw, 3.2rem);
-      letter-spacing: -0.05em;
-    }
-
-    .section-kicker {
-      color: #c8f8dd;
-      font-size: 0.82rem;
-    }
-
-    .section-head p {
-      max-width: 58ch;
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.75;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .stat-value {
-      font-size: 1.78rem;
-    }
-
-    .about {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-    }
-
-    .about-copy {
-      padding: 28px;
-    }
-
-    .about-copy h2 {
-      margin: 12px 0 14px;
-      font-size: clamp(2rem, 3vw, 2.85rem);
-      letter-spacing: -0.045em;
-    }
-
-    .about-copy p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.8;
-    }
-
-    .tag-cloud {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 22px;
-    }
-
-    .focus-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .focus-card h3,
-    .project-card h3,
-    .timeline-card h3 {
-      margin: 12px 0 10px;
-      font-size: 1.16rem;
-    }
-
-    .focus-card p,
-    .project-card p,
-    .timeline-card p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.75;
-    }
-
-    .focus-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 16px;
-      display: grid;
-      place-items: center;
-      color: #09140f;
-      font-family: "IBM Plex Mono", monospace;
-      font-weight: 700;
-      background: linear-gradient(135deg, var(--accent), #d7ff72);
-      box-shadow: 0 12px 24px rgba(89, 247, 168, 0.16);
-    }
-
+    /* ─── Projects ─── */
     .filter-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 14px;
       flex-wrap: wrap;
-      margin-bottom: 18px;
+      gap: 12px;
+      margin-bottom: 20px;
     }
 
     .filter-bar {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 6px;
     }
 
     .filter-bar button {
+      border: 1px solid var(--border);
+      background: transparent;
+      padding: 7px 14px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      font-family: inherit;
+      cursor: pointer;
+      color: var(--text-muted);
+      transition: background 150ms ease, color 150ms ease, border-color 150ms ease;
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      cursor: pointer;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(255, 255, 255, 0.035);
-      backdrop-filter: blur(14px);
-      color: var(--muted);
-      padding: 10px 14px;
-      border-radius: 999px;
-      transition: color 180ms ease, background 180ms ease, transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+      gap: 6px;
     }
 
     .filter-bar button:hover {
       color: var(--text);
-      transform: translateY(-1px);
+      border-color: #ccc;
     }
 
     .filter-bar button.active {
-      color: #04120c;
-      background: linear-gradient(135deg, var(--accent), #d7ff72);
-      border-color: transparent;
-      box-shadow: 0 12px 24px rgba(89, 247, 168, 0.18);
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
     }
 
     .filter-count {
-      min-width: 24px;
-      height: 24px;
-      padding: 0 7px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.08);
-      color: inherit;
-      font-size: 0.74rem;
-      line-height: 1;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.7rem;
+      opacity: 0.8;
     }
 
     .filter-caption {
-      color: var(--muted);
-      font-size: 0.92rem;
+      font-size: 0.82rem;
+      color: var(--text-light);
     }
 
     .project-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-      perspective: 1400px;
+      grid-template-columns: 1fr;
+      gap: 12px;
     }
 
     .project-card {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      min-height: 420px;
-      gap: 12px;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.025)),
-        linear-gradient(180deg, rgba(10, 18, 34, 0.82), rgba(8, 13, 24, 0.78));
-      backdrop-filter: blur(18px) saturate(120%);
-      box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.08),
-        0 18px 36px rgba(0, 0, 0, 0.18);
-      transform-style: preserve-3d;
-      transform:
-        perspective(1400px)
-        rotateX(var(--rx, 0deg))
-        rotateY(var(--ry, 0deg))
-        translate3d(0, var(--lift, 0px), 0);
-      transition:
-        transform 220ms ease,
-        border-color 220ms ease,
-        background 220ms ease,
-        box-shadow 220ms ease;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 20px;
+      align-items: start;
+      transition: border-color 150ms ease, box-shadow 150ms ease;
     }
 
     .project-card:hover {
-      --lift: -6px;
-      border-color: rgba(89, 247, 168, 0.18);
-      box-shadow: 0 20px 44px rgba(0, 0, 0, 0.24);
+      border-color: #ccc;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
     }
 
     .project-card.featured {
-      border-color: rgba(86, 200, 255, 0.18);
-      background:
-        linear-gradient(180deg, rgba(86, 200, 255, 0.09), rgba(255, 255, 255, 0.03)),
-        linear-gradient(180deg, rgba(10, 18, 34, 0.84), rgba(8, 13, 24, 0.78));
-    }
-
-    .project-card::before {
-      content: "";
-      position: absolute;
-      inset: -1px;
-      background:
-        radial-gradient(circle at var(--px, 50%) var(--py, 50%), rgba(255, 255, 255, 0.18), transparent 24%);
-      opacity: var(--glow, 0);
-      transition: opacity 220ms ease;
-      pointer-events: none;
-    }
-
-    .project-card::after {
-      content: "";
-      position: absolute;
-      top: -40%;
-      left: -65%;
-      width: 48%;
-      height: 190%;
-      transform: rotate(18deg) translate3d(-140%, 0, 0);
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.04),
-        rgba(255, 255, 255, 0.22),
-        rgba(255, 255, 255, 0.04),
-        transparent
-      );
-      opacity: 0;
-      pointer-events: none;
-    }
-
-    .project-card:hover::after {
-      opacity: 1;
-      transform: rotate(18deg) translate3d(330%, 0, 0);
-      transition: transform 850ms ease, opacity 260ms ease;
-    }
-
-    .project-card > * {
-      position: relative;
-      z-index: 1;
-      transform: translateZ(18px);
+      border-left: 3px solid var(--accent);
     }
 
     .project-cover {
-      position: relative;
-      margin: -16px -16px 2px;
-      aspect-ratio: 16 / 9;
+      width: 120px;
+      height: 68px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
       overflow: hidden;
-      border-radius: 18px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01)),
-        rgba(255, 255, 255, 0.02);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      flex-shrink: 0;
     }
 
     .project-cover img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transform: scale(1.01);
-      transition: transform 420ms ease, filter 420ms ease;
-      filter: saturate(1.03) contrast(1.04);
-    }
-
-    .project-card:hover .project-cover img {
-      transform: scale(1.05);
-      filter: saturate(1.1) contrast(1.06);
-    }
-
-    .project-cover::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(180deg, rgba(4, 10, 20, 0.02), rgba(4, 10, 20, 0.3) 70%, rgba(4, 10, 20, 0.56) 100%);
-      pointer-events: none;
     }
 
     .project-content {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      min-height: 0;
-      flex: 1;
+      min-width: 0;
     }
 
-    .repo-meta {
+    .project-content h3 {
+      margin-bottom: 6px;
+    }
+
+    .project-content p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .project-meta {
       display: flex;
-      align-items: center;
       flex-wrap: wrap;
       gap: 10px;
-      font-size: 0.8rem;
-      color: #cad4e7;
+      margin-top: 10px;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.72rem;
+      color: var(--text-light);
     }
 
-    .pill {
+    .project-meta span {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 7px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(255, 255, 255, 0.04);
+      gap: 4px;
     }
 
-    .language-dot {
+    .lang-dot {
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: var(--accent-2);
       display: inline-block;
     }
 
-    .project-links {
+    .project-link {
+      flex-shrink: 0;
       display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 0;
+      flex-direction: column;
+      gap: 8px;
+      align-items: flex-end;
     }
 
-    .project-links a {
-      font-weight: 700;
-      color: #d7fff0;
-    }
-
-    .project-links a:last-child {
-      color: var(--muted);
+    .project-link a {
+      font-size: 0.82rem;
       font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      white-space: nowrap;
     }
 
-    .project-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-top: auto;
-      flex-wrap: wrap;
-    }
+    .project-link a:hover { text-decoration: underline; }
 
     .project-category {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 11px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(255, 255, 255, 0.04);
-      color: #d7e8f8;
-      font-size: 0.78rem;
-      font-family: "IBM Plex Mono", monospace;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.68rem;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 3px 8px;
     }
 
     .empty-state {
       display: none;
-      padding: 22px;
-      border-radius: 20px;
-      border: 1px dashed rgba(255, 255, 255, 0.14);
-      color: var(--muted);
+      padding: 32px;
       text-align: center;
-      background: rgba(255, 255, 255, 0.02);
+      color: var(--text-muted);
+      border: 1px dashed var(--border);
+      border-radius: 10px;
     }
 
-    .timeline {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 22px;
-    }
-
-    .timeline-list {
-      display: grid;
-      gap: 14px;
-    }
-
-    .timeline-card {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .timeline-card::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 4px;
-      background: linear-gradient(180deg, var(--accent), transparent);
-    }
-
+    /* ─── Footer ─── */
     .footer {
-      padding: 16px 0 62px;
+      padding: 32px 0 48px;
       text-align: center;
-      color: var(--muted);
-    }
-
-    .footer-copy {
-      line-height: 1.8;
+      border-top: 1px solid var(--border);
+      margin-top: 20px;
     }
 
     .footer-links {
       display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content: center;
+      gap: 16px;
+      margin-bottom: 12px;
     }
 
     .footer-icon {
-      width: 52px;
-      height: 52px;
+      width: 40px;
+      height: 40px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.025)),
-        rgba(255, 255, 255, 0.03);
-      color: #dbe9fb;
-      box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.06),
-        0 12px 24px rgba(0, 0, 0, 0.18);
-      backdrop-filter: blur(14px);
-      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, color 180ms ease;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      transition: color 150ms ease, border-color 150ms ease;
     }
 
     .footer-icon:hover {
-      transform: translateY(-3px);
-      color: #ffffff;
-      border-color: rgba(89, 247, 168, 0.2);
-      box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.08),
-        0 16px 28px rgba(0, 0, 0, 0.24);
+      color: var(--accent);
+      border-color: var(--accent);
     }
 
     .footer-icon svg {
-      width: 22px;
-      height: 22px;
+      width: 18px;
+      height: 18px;
     }
 
-    .reveal-on-scroll {
-      will-change: transform, opacity;
+    .footer-copy {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.75rem;
+      color: var(--text-light);
+      margin-top: 8px;
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      .project-card,
-      .button,
-      .button-secondary,
-      .nav-links a,
-      .filter-bar button {
-        transition: none;
-      }
-    }
-
-    @media (max-width: 1120px) {
-      .hero,
-      .about,
-      .timeline {
+    /* ─── Responsive ─── */
+    @media (max-width: 720px) {
+      .hero {
         grid-template-columns: 1fr;
+      }
+
+      .hero-avatar {
+        display: none;
       }
 
       .stats-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .focus-grid,
-      .project-grid {
+      .project-card {
         grid-template-columns: 1fr;
       }
-    }
 
-    @media (max-width: 820px) {
-      .nav {
-        border-radius: 28px;
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .nav-right {
+      .project-cover {
         width: 100%;
-        justify-content: space-between;
+        height: auto;
+        aspect-ratio: 16/9;
       }
 
-      .nav-links {
+      .project-link {
+        flex-direction: row;
         gap: 12px;
+        align-items: center;
       }
 
-      .profile-strip {
-        grid-template-columns: 1fr;
-      }
-
-      .filter-row,
-      .section-head {
-        align-items: flex-start;
+      .filter-row {
         flex-direction: column;
+        align-items: flex-start;
       }
     }
 
-    @media (max-width: 640px) {
-      .page {
-        width: min(var(--max-width), calc(100vw - 18px));
-      }
-
-      .hero-copy,
-      .hero-aside,
-      .about-copy,
-      .terminal,
-      .focus-card,
-      .project-card,
-      .timeline-card,
-      .stat-card {
-        padding: 18px;
-      }
-
-      .hero-actions {
-        flex-direction: column;
-      }
-
-      .button,
-      .button-secondary {
-        width: 100%;
-      }
-
+    @media (max-width: 480px) {
       .stats-grid {
         grid-template-columns: 1fr;
       }
 
-      .avatar-stage {
-        min-height: 320px;
-      }
-
-      .avatar-wrap {
-        width: 170px;
-        height: 170px;
-      }
-
-      .orbit {
-        width: 230px;
-        height: 230px;
-      }
-
-      .orbit.orbit-2 {
-        width: 290px;
-        height: 290px;
-      }
-
-      .badge-a,
-      .badge-b,
-      .badge-c,
-      .badge-d {
-        transform: scale(0.92);
-      }
-
-      .badge-a {
-        left: 8px;
-      }
-
-      .badge-b {
-        right: 8px;
-      }
-
-      .badge-c {
-        left: 18px;
-      }
-
-      .badge-d {
-        right: 8px;
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
@@ -1232,428 +620,358 @@
   <div class="page">
     <nav class="nav">
       <div class="brand">
-        <span class="brand-mark">YS</span>
-        <div class="brand-copy">
-          <div class="brand-title">isaac-sun.github.io</div>
-          <div
-            class="brand-subtitle"
-            data-i18n
-            data-en="Bilingual personal website"
-            data-zh="中英双语个人网站"
-          ></div>
-        </div>
+        <div class="brand-dot"></div>
+        <span class="brand-name">Yinan SUN</span>
       </div>
-
       <div class="nav-right">
         <div class="nav-links">
-          <a href="#about" data-i18n data-en="About" data-zh="关于"></a>
-          <a href="#focus" data-i18n data-en="Focus" data-zh="方向"></a>
+          <a href="#education" data-i18n data-en="Education" data-zh="教育背景"></a>
+          <a href="#experience" data-i18n data-en="Experience" data-zh="经历"></a>
+          <a href="#awards" data-i18n data-en="Awards" data-zh="奖项"></a>
+          <a href="#skills" data-i18n data-en="Skills" data-zh="技能"></a>
           <a href="#projects" data-i18n data-en="Projects" data-zh="项目"></a>
-          <a href="#roadmap" data-i18n data-en="Roadmap" data-zh="规划"></a>
-          <a href="#contact" data-i18n data-en="Contact" data-zh="联系"></a>
         </div>
-
-        <div class="lang-switch" aria-label="Language switcher">
+        <div class="lang-switch">
           <button type="button" class="active" data-lang-button="en">EN</button>
           <button type="button" data-lang-button="zh">中文</button>
         </div>
       </div>
     </nav>
 
-    <main>
-      <section class="hero">
-        <article class="panel hero-copy reveal-on-scroll" data-parallax-root>
-          <canvas class="hero-particles" id="hero-particles" aria-hidden="true"></canvas>
-          <div class="eyebrow-row">
-            <span class="eyebrow" data-parallax="8">$ whoami --verbose</span>
-            <span class="framework-pill" data-parallax="12">GSAP + ScrollTrigger + GitHub API</span>
-          </div>
-
-          <h1 data-parallax="16">Yinan SUN</h1>
-          <p
-            class="hero-subtitle"
-            data-parallax="12"
-            data-i18n
-            data-en="Federated learning researcher · AI systems learner · full-stack builder"
-            data-zh="联邦学习研究者 · AI 系统学习者 · 全栈构建者"
-          ></p>
+    <!-- ─── Hero ─── -->
+    <section>
+      <div class="hero">
+        <div>
+          <h1>Yinan SUN</h1>
+          <p class="hero-subtitle">Computer Science with Artificial Intelligence</p>
           <p
             class="hero-lead"
-            data-parallax="10"
             data-i18n
-            data-en="I like work that starts from first principles and ends in something visible: papers, experiments, notes, interfaces, or tools."
-            data-zh="我偏爱那种从第一性原理出发、最终能落成可见成果的工作：论文、实验、笔记、界面或工具。"
+            data-en="BSc student at University of Nottingham, interested in federated learning, systems engineering, and building from first principles."
+            data-zh="宁波诺丁汉大学计算机科学与人工智能本科生。对联邦学习、系统工程和第一性原理构建感兴趣。"
           ></p>
-
-          <div class="hero-actions" data-parallax="8">
-            <a
-              class="button"
-              href="https://github.com/isaac-sun"
-              target="_blank"
-              rel="noreferrer"
-              data-i18n
-              data-en="Explore GitHub"
-              data-zh="查看 GitHub"
-            ></a>
-            <a
-              class="button-secondary"
-              href="#projects"
-              data-i18n
-              data-en="See selected work"
-              data-zh="看精选项目"
-            ></a>
+          <div class="contact-row">
+            <span class="contact-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3.25" y="5.25" width="17.5" height="13.5" rx="2.75"/><path d="M4 7.5L12 13.25L20 7.5"/></svg>
+              <a href="mailto:scyys25@nottingham.edu.cn">scyys25@nottingham.edu.cn</a>
+            </span>
+            <span class="contact-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              +86 13854607221
+            </span>
+            <span class="contact-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.6 2 12.27c0 4.54 2.87 8.39 6.84 9.75.5.1.68-.22.68-.49 0-.24-.01-1.88-.01-1.88-2.78.62-3.37-1.22-3.37-1.22-.46-1.2-1.11-1.52-1.11-1.52-.91-.64.07-.63.07-.63 1 .08 1.54 1.06 1.54 1.06.9 1.58 2.35 1.12 2.92.86.09-.67.35-1.12.64-1.38-2.22-.26-4.55-1.15-4.55-5.13 0-1.13.39-2.05 1.03-2.78-.1-.26-.45-1.31.1-2.74 0 0 .84-.28 2.75 1.06A9.3 9.3 0 0 1 12 7.19c.85 0 1.71.12 2.51.35 1.9-1.34 2.74-1.06 2.74-1.06.55 1.43.2 2.48.1 2.74.64.73 1.03 1.65 1.03 2.78 0 3.99-2.33 4.87-4.56 5.13.36.32.68.93.68 1.88 0 1.36-.01 2.45-.01 2.78 0 .27.18.59.69.49A10.23 10.23 0 0 0 22 12.27C22 6.6 17.52 2 12 2Z"/></svg>
+              <a href="https://github.com/isaac-sun" target="_blank" rel="noreferrer">isaac-sun</a>
+            </span>
           </div>
-
-          <div class="tag-list" data-parallax="6">
-            <span class="tag">Federated Learning</span>
-            <span class="tag">AI Systems</span>
-            <span class="tag">CS Notes</span>
-            <span class="tag">Research</span>
-            <span class="tag">Engineering</span>
-            <span class="tag">Open Learning</span>
+          <div class="hero-actions" style="margin-top:20px;">
+            <a class="btn btn-primary" href="https://github.com/isaac-sun" target="_blank" rel="noreferrer">
+              <span data-i18n data-en="GitHub Profile" data-zh="GitHub 主页"></span>
+            </a>
+            <a class="btn btn-secondary" href="#projects">
+              <span data-i18n data-en="View Projects" data-zh="查看项目"></span>
+            </a>
           </div>
-        </article>
+        </div>
+        <img
+          class="hero-avatar"
+          src="https://avatars.githubusercontent.com/u/184475888?v=4"
+          alt="Yinan SUN"
+        >
+      </div>
+    </section>
 
-        <aside class="panel hero-aside reveal-on-scroll">
-          <div class="avatar-stage" id="avatar-stage" data-parallax-root>
-            <div class="avatar-grid"></div>
-            <div class="avatar-glow"></div>
-            <div class="orbit"></div>
-            <div class="orbit orbit-2"></div>
+    <!-- ─── GitHub Stats ─── -->
+    <section>
+      <div class="section-label" data-i18n data-en="Profile" data-zh="GitHub 档案"></div>
+      <h2 data-i18n data-en="GitHub at a glance" data-zh="GitHub 一览"></h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label" data-i18n data-en="Public Repos" data-zh="公开仓库"></div>
+          <div class="stat-value" id="stat-repos">--</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label" data-i18n data-en="Followers" data-zh="关注者"></div>
+          <div class="stat-value" id="stat-followers">--</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label" data-i18n data-en="Following" data-zh="正在关注"></div>
+          <div class="stat-value" id="stat-following">--</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label" data-i18n data-en="Latest Push" data-zh="最近更新"></div>
+          <div class="stat-value" id="stat-updated" style="font-size:1rem;">--</div>
+        </div>
+      </div>
+    </section>
 
-            <div
-              class="floating-badge badge-a"
-              data-parallax="22"
-              data-i18n
-              data-en="fed learning"
-              data-zh="联邦学习"
-            ></div>
-            <div
-              class="floating-badge badge-b"
-              data-parallax="16"
-              data-i18n
-              data-en="systems"
-              data-zh="系统方向"
-            ></div>
-            <div
-              class="floating-badge badge-c"
-              data-parallax="18"
-              data-i18n
-              data-en="builder mode"
-              data-zh="构建模式"
-            ></div>
-            <div
-              class="floating-badge badge-d"
-              data-parallax="14"
-              data-i18n
-              data-en="public notes"
-              data-zh="公开笔记"
-            ></div>
-
-            <div class="avatar-wrap" id="avatar-wrap" data-parallax="28">
-              <img
-                src="https://avatars.githubusercontent.com/u/184475888?v=4"
-                alt="Avatar of Yinan SUN"
-              >
+    <!-- ─── Education ─── -->
+    <section id="education">
+      <div class="section-label" data-i18n data-en="Education" data-zh="教育背景"></div>
+      <h2 data-i18n data-en="Academic background" data-zh="学术背景"></h2>
+      <div class="entry-list">
+        <div class="entry">
+          <div class="entry-header">
+            <div>
+              <div class="entry-title">BSc Hons Computer Science with Artificial Intelligence</div>
+              <div class="entry-subtitle">University of Nottingham (UK Jubilee Campus) — Nottingham, UK</div>
+            </div>
+            <span class="entry-meta">Sep 2026 – Jun 2028</span>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="entry-header">
+            <div>
+              <div class="entry-title">BSc Hons Computer Science with Artificial Intelligence</div>
+              <div class="entry-subtitle">University of Nottingham (China Ningbo Campus) — Ningbo, China</div>
+            </div>
+            <div>
+              <span class="entry-meta">Sep 2024 – Jun 2026</span>
+              <span class="entry-meta" style="margin-left:12px;color:var(--accent);">GPA 3.7/4.0</span>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="profile-strip">
-            <div class="micro-card">
-              <div class="micro-card-label" data-i18n data-en="Location" data-zh="所在地"></div>
-              <strong>Ningbo, P.R.China</strong>
+    <!-- ─── Experience ─── -->
+    <section id="experience">
+      <div class="section-label" data-i18n data-en="Experience" data-zh="经历"></div>
+      <h2 data-i18n data-en="Internship & Leadership" data-zh="实习与领导力经历"></h2>
+      <div class="entry-list">
+        <div class="entry">
+          <div class="entry-header">
+            <div>
+              <div class="entry-title" data-i18n data-en="Student Intern — UNNC IT Services" data-zh="学生实习生 — UNNC IT 服务"></div>
             </div>
-            <div class="micro-card">
-              <div class="micro-card-label" data-i18n data-en="School" data-zh="学校"></div>
-              <strong>University of Nottingham</strong>
+            <span class="entry-meta">Aug 2025 – Present</span>
+          </div>
+          <div class="entry-detail" data-i18n
+            data-en="Participated in the maintenance of the school's information system, providing face-to-face, phone, and email support for IT-related issues. Assisted in writing the Problem Shooting document for new student pre-registration and helped over 800 people complete online pre-registration during the welcome period."
+            data-zh="参与学校信息系统的维护工作，为全校师生提供面对面、电话和邮件的IT问题支持。协助撰写新生预注册的Problem Shooting文档，在迎新期间帮助超过800人完成在线预注册。"
+          ></div>
+        </div>
+        <div class="entry">
+          <div class="entry-header">
+            <div>
+              <div class="entry-title" data-i18n data-en="PM Manager — UNNC New Student Welcome" data-zh="项目管理 — UNNC 新生迎新"></div>
             </div>
-            <div class="micro-card">
-              <div class="micro-card-label" data-i18n data-en="Mode" data-zh="状态"></div>
-              <strong data-i18n data-en="shipping" data-zh="持续构建"></strong>
+            <span class="entry-meta">Mar 2025 – Oct 2025</span>
+          </div>
+          <div class="entry-detail" data-i18n
+            data-en="As one of the project leaders for the 2025 Induction Week, completed the recruitment, interview, and selection of peer mentors for the 2025–2026 academic year, and coordinated welcome week activities during the autumn registration period."
+            data-zh="作为2025年迎新周的项目负责人之一，完成了2025-2026学年朋辈导师的招募、面试和选拔工作，同时协调秋季新生报到期间的迎新周工作。"
+          ></div>
+        </div>
+        <div class="entry">
+          <div class="entry-header">
+            <div>
+              <div class="entry-title" data-i18n data-en="President — UNNC Psychology Association" data-zh="会长 — UNNC 心理协会"></div>
             </div>
+            <span class="entry-meta">Apr 2025 – Jun 2026</span>
           </div>
-        </aside>
-      </section>
-
-      <section class="reveal-on-scroll">
-        <div class="section-head">
-          <div>
-            <div class="section-kicker" data-i18n data-en="/ live signals" data-zh="/ 实时信号"></div>
-            <h2 data-i18n data-en="GitHub in motion" data-zh="动态 GitHub 档案"></h2>
-          </div>
+          <div class="entry-detail" data-i18n
+            data-en="Oversaw all association work; completed brand image upgrade; integrated an intelligent chatbot into the WeChat official account using Tencent Hunyuan model, providing crisis intervention and emotional support for all faculty and students."
+            data-zh="全面负责心理协会工作；完成品牌形象升级；利用腾讯混元模型将智能机器人嵌入微信公众号，为全校师生提供危机干预、情绪宣泄等心理支持功能。"
+          ></div>
         </div>
-
-        <div class="stats-grid">
-          <div class="stat-card">
-            <div class="stat-label" data-i18n data-en="Public Repos" data-zh="公开仓库"></div>
-            <div class="stat-value" id="stat-repos">--</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-label" data-i18n data-en="Followers" data-zh="关注者"></div>
-            <div class="stat-value" id="stat-followers">--</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-label" data-i18n data-en="Following" data-zh="正在关注"></div>
-            <div class="stat-value" id="stat-following">--</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-label" data-i18n data-en="Latest Push" data-zh="最近更新"></div>
-            <div class="stat-value" id="stat-updated" style="font-size:1.05rem;">--</div>
-          </div>
-        </div>
-      </section>
-
-      <section class="about" id="about">
-        <article class="panel terminal reveal-on-scroll">
-          <div class="terminal-head">
-            <div class="dots" aria-hidden="true">
-              <span></span>
-              <span></span>
-              <span></span>
+        <div class="entry">
+          <div class="entry-header">
+            <div>
+              <div class="entry-title" data-i18n data-en="Vice-President — UNNC Computer Psycho Union" data-zh="副会长 — UNNC CPU"></div>
             </div>
-            <span class="terminal-label">cat learning-philosophy.md</span>
+            <span class="entry-meta">Mar 2025 – Jun 2026</span>
           </div>
-          <pre
-            id="philosophy-terminal"
-            data-i18n-html
-            data-en="I care about <span class='accent'>understanding</span>, not just collecting tools.
-
-- Derive formulas instead of copying them
-- Build implementations from scratch when possible
-- Connect mathematics with systems and code
-- Keep public notes as a durable learning archive"
-            data-zh="我在意的是<span class='accent'>理解本身</span>，而不只是堆工具。
-
-- 尽量自己推导，而不是照抄公式
-- 能从零实现时，就不只停留在阅读
-- 把数学、系统和代码联系起来
-- 用公开笔记把长期学习沉淀下来"
-          ></pre>
-        </article>
-
-        <article class="panel about-copy reveal-on-scroll">
-          <div class="section-kicker" data-i18n data-en="/ context" data-zh="/ 背景"></div>
-          <h2
-            data-i18n
-            data-en="A profile shaped by research, systems thinking, and visible output"
-            data-zh="一个由研究、系统思维和可见产出共同塑造的主页"
-          ></h2>
-          <p
-            data-i18n
-            data-en="My public work already points in a clear direction: federated learning, structured CS archives, AI notes, and practical tooling."
-            data-zh="我的公开作品已经有很清晰的脉络：联邦学习、系统化的 CS 学习资料、AI 笔记，以及偏实用的工具和工程尝试。"
-          ></p>
-
-          <div class="tag-cloud">
-            <span class="tag">Python</span>
-            <span class="tag">C</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">SQL</span>
-            <span class="tag">LaTeX</span>
-            <span class="tag">React</span>
-            <span class="tag">Vue</span>
-            <span class="tag">Docker</span>
+          <div class="entry-detail" data-i18n
+            data-en="Responsible for event planning and publicity; coordinated with other student organizations and university departments."
+            data-zh="负责活动策划和宣传，协调与其他学生组织和学校部门的合作。"
+          ></div>
+        </div>
+        <div class="entry">
+          <div class="entry-header">
+            <div>
+              <div class="entry-title" data-i18n data-en="Student Representative — Learning Community Forum" data-zh="学生代表 — 学习社区论坛"></div>
+            </div>
+            <span class="entry-meta">Oct 2024 – May 2025</span>
           </div>
-        </article>
-      </section>
+          <div class="entry-detail" data-i18n
+            data-en="As CS major representative in the LCF of UNNC's English Language Teaching Center, independently collected feedback from all CS students. Collected feedback was used by course module leaders to improve teaching quality."
+            data-zh="作为计算机科学专业在英语语言教学中心学习社区论坛的代表，独立收集计算机科学系全体学生的反馈、建议和意见。收集的反馈经讨论后，由课程模块负责人用于改进课程质量和教学方法。"
+          ></div>
+        </div>
+      </div>
+    </section>
 
-      <section class="reveal-on-scroll" id="focus">
-        <div class="section-head">
-          <div>
-            <div class="section-kicker" data-i18n data-en="/ current focus" data-zh="/ 当前方向"></div>
-            <h2 data-i18n data-en="What I work on" data-zh="我主要在做什么"></h2>
+    <!-- ─── Awards ─── -->
+    <section id="awards">
+      <div class="section-label" data-i18n data-en="Awards" data-zh="奖项与证书"></div>
+      <h2 data-i18n data-en="Certificates & Recognition" data-zh="证书与荣誉"></h2>
+      <div class="entry-list">
+        <div class="entry">
+          <div class="entry-header">
+            <div>
+              <div class="entry-title" data-i18n data-en="Meritorious Winner (World Top 7%)" data-zh="特等奖（全球前7%）"></div>
+              <div class="entry-subtitle" data-i18n data-en="2026 Mathematical Contest in Modelling" data-zh="2026年美国大学生数学建模竞赛"></div>
+            </div>
+            <span class="entry-meta">Jan 2026</span>
           </div>
         </div>
-
-        <div class="focus-grid">
-          <article class="focus-card reveal-on-scroll">
-            <div class="focus-icon">01</div>
-            <h3 data-i18n data-en="Federated Learning" data-zh="联邦学习"></h3>
-            <p
-              data-i18n
-              data-en="Experiments around decentralized training, evaluation, and model behavior, especially where engineering decisions affect research results."
-              data-zh="围绕去中心化训练、实验评估和模型行为的工作，尤其关注工程实现如何反过来影响研究结果。"
-            ></p>
-          </article>
-
-          <article class="focus-card reveal-on-scroll">
-            <div class="focus-icon">02</div>
-            <h3 data-i18n data-en="AI Learning Systems" data-zh="AI 学习系统"></h3>
-            <p
-              data-i18n
-              data-en="Building reusable notes, examples, and self-study structures that make abstract topics easier to retain and revisit."
-              data-zh="构建可复用的笔记、示例和自学结构，把抽象主题整理成可以反复回看的长期知识体系。"
-            ></p>
-          </article>
-
-          <article class="focus-card reveal-on-scroll">
-            <div class="focus-icon">03</div>
-            <h3 data-i18n data-en="Practical Engineering" data-zh="实用工程"></h3>
-            <p
-              data-i18n
-              data-en="Turning ideas into working interfaces and tools so the loop between theory and shipping stays honest."
-              data-zh="把想法真正做成可运行的界面和工具，让理论和落地之间的循环保持真实。"
-            ></p>
-          </article>
-        </div>
-      </section>
-
-      <section class="reveal-on-scroll" id="projects">
-        <div class="section-head">
-          <div>
-            <div class="section-kicker" data-i18n data-en="/ selected repositories" data-zh="/ 精选仓库"></div>
-            <h2 data-i18n data-en="Project wall" data-zh="项目墙"></h2>
+        <div class="entry">
+          <div class="entry-header">
+            <div>
+              <div class="entry-title" data-i18n data-en="Outstanding Student Leader (Top 5%)" data-zh="优秀学生领袖（前5%）"></div>
+              <div class="entry-subtitle" data-i18n data-en="2026 UNNC Student Award" data-zh="2026年 UNNC 学生奖项"></div>
+            </div>
+            <span class="entry-meta">Jun 2026</span>
           </div>
         </div>
-
-        <div class="filter-row">
-          <div class="filter-bar" id="filter-bar">
-            <button type="button" class="active" data-filter="all">
-              <span data-i18n data-en="All" data-zh="全部"></span>
-              <span class="filter-count" data-filter-count="all">0</span>
-            </button>
-            <button type="button" data-filter="featured">
-              <span data-i18n data-en="Featured" data-zh="精选"></span>
-              <span class="filter-count" data-filter-count="featured">0</span>
-            </button>
-            <button type="button" data-filter="research">
-              <span data-i18n data-en="Research" data-zh="研究"></span>
-              <span class="filter-count" data-filter-count="research">0</span>
-            </button>
-            <button type="button" data-filter="notes">
-              <span data-i18n data-en="Notes" data-zh="笔记"></span>
-              <span class="filter-count" data-filter-count="notes">0</span>
-            </button>
-            <button type="button" data-filter="tools">
-              <span data-i18n data-en="Tools" data-zh="工具"></span>
-              <span class="filter-count" data-filter-count="tools">0</span>
-            </button>
-          </div>
-          <div class="filter-caption" id="filter-status"></div>
-        </div>
-
-        <div class="project-grid" id="project-grid"></div>
-        <div
-          class="empty-state"
-          id="empty-state"
-          data-i18n
-          data-en="No repositories match this filter right now."
-          data-zh="当前筛选条件下没有匹配的仓库。"
-        ></div>
-      </section>
-
-      <section class="reveal-on-scroll" id="roadmap">
-        <div class="section-head">
-          <div>
-            <div class="section-kicker" data-i18n data-en="/ roadmap and interests" data-zh="/ 路线和兴趣"></div>
-            <h2 data-i18n data-en="Forward motion" data-zh="下一步方向"></h2>
+        <div class="entry">
+          <div class="entry-header">
+            <div>
+              <div class="entry-title" data-i18n data-en="Best Mentor" data-zh="最佳导师"></div>
+              <div class="entry-subtitle" data-i18n data-en="UNNC Peer Mentor Programme" data-zh="UNNC 朋辈导师项目"></div>
+            </div>
+            <span class="entry-meta">May 2026</span>
           </div>
         </div>
-
-        <div class="timeline">
-          <div class="timeline-list">
-            <article class="timeline-card reveal-on-scroll">
-              <h3 data-i18n data-en="Publish stronger research projects" data-zh="发布更完整的研究项目"></h3>
-              <p
-                data-i18n
-                data-en="Turn federated learning experiments into clearer end-to-end repositories with documentation, results, and reproducible structure."
-                data-zh="把联邦学习实验整理成更完整的端到端项目，包含更清晰的文档、结果展示和可复现结构。"
-              ></p>
-            </article>
-            <article class="timeline-card reveal-on-scroll">
-              <h3 data-i18n data-en="Contribute to useful AI tooling" data-zh="参与有用的 AI 工具建设"></h3>
-              <p
-                data-i18n
-                data-en="Move beyond coursework artifacts and contribute code that remains useful in open-source or real-world workflows."
-                data-zh="不只停留在课程产物，而是写出在开源环境或真实工作流里依然有价值的代码。"
-              ></p>
-            </article>
-            <article class="timeline-card reveal-on-scroll">
-              <h3 data-i18n data-en="Keep writing public notes" data-zh="持续写公开技术笔记"></h3>
-              <p
-                data-i18n
-                data-en="Treat notes as long-term infrastructure for learning, explanation, and future research thinking."
-                data-zh="把笔记当成长期学习、表达和未来研究思考的基础设施。"
-              ></p>
-            </article>
-          </div>
-
-          <div class="timeline-list">
-            <article class="timeline-card reveal-on-scroll">
-              <h3 data-i18n data-en="Photography" data-zh="摄影"></h3>
-              <p
-                data-i18n
-                data-en="Visual storytelling and composition already fit the site identity, so the interface borrows some atmosphere from editorial and cinematic layouts."
-                data-zh="视觉叙事和构图本身就和这个网站气质契合，所以界面也借了一些偏编辑感和电影感的视觉方式。"
-              ></p>
-            </article>
-            <article class="timeline-card reveal-on-scroll">
-              <h3 data-i18n data-en="Debate and first-principles thinking" data-zh="辩论与第一性原理思考"></h3>
-              <p
-                data-i18n
-                data-en="Clear argumentation affects how technical choices are made, which is why the writing style here stays direct and structured."
-                data-zh="清晰论证会影响技术决策，所以这里的文案也尽量保持直接、结构化和可辩护。"
-              ></p>
-            </article>
-            <article class="timeline-card reveal-on-scroll">
-              <h3 data-i18n data-en="Cross-cultural communication" data-zh="跨文化沟通"></h3>
-              <p
-                data-i18n
-                data-en="That is also why the site is bilingual instead of forcing one audience language."
-                data-zh="这也是为什么网站做成双语，而不是强迫所有访客只用一种语言阅读。"
-              ></p>
-            </article>
+        <div class="entry">
+          <div class="entry-header">
+            <div>
+              <div class="entry-title" data-i18n data-en="Peer Mentor Outstanding Contribution Award" data-zh="朋辈导师杰出贡献奖"></div>
+              <div class="entry-subtitle" data-i18n data-en="UNNC Peer Mentor Award" data-zh="UNNC 朋辈导师奖项"></div>
+            </div>
+            <span class="entry-meta">May 2026</span>
           </div>
         </div>
-      </section>
-    </main>
+        <div class="entry">
+          <div class="entry-header">
+            <div>
+              <div class="entry-title" data-i18n data-en="AI & Sustainable Development Future Innovation Challenge" data-zh="人工智能与可持续发展未来创新挑战赛"></div>
+            </div>
+            <span class="entry-meta">Jun – Oct 2025</span>
+          </div>
+          <div class="entry-detail" data-i18n
+            data-en="Collaborated with teammates to complete the proposal writing and project planning for the 'Enterprise Digital Asset Allocation Cycle System Based on Artificial Intelligence.'"
+            data-zh="与队友合作完成《基于人工智能的企业数字资产配置循环系统》的方案撰写和项目规划，成功完成比赛并提交方案。"
+          ></div>
+        </div>
+      </div>
+    </section>
 
-    <footer class="footer" id="contact">
+    <!-- ─── Skills ─── -->
+    <section id="skills">
+      <div class="section-label" data-i18n data-en="Skills" data-zh="技能"></div>
+      <h2 data-i18n data-en="Technical skills" data-zh="技术技能"></h2>
+      <div class="skill-group">
+        <h3 data-i18n data-en="Programming Languages" data-zh="编程语言"></h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">C</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">Haskell</span>
+          <span class="skill-tag">Assembly (MIPS)</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3 data-i18n data-en="Web Development" data-zh="Web 开发"></h3>
+        <div class="skill-tags">
+          <span class="skill-tag">HTML</span>
+          <span class="skill-tag">CSS</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">Flask</span>
+          <span class="skill-tag">Jinja</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3 data-i18n data-en="Databases" data-zh="数据库"></h3>
+        <div class="skill-tags">
+          <span class="skill-tag">SQLite</span>
+          <span class="skill-tag">PostgreSQL</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3 data-i18n data-en="Tools" data-zh="工具"></h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">GitHub</span>
+          <span class="skill-tag">Claude Code</span>
+          <span class="skill-tag">VS Code</span>
+          <span class="skill-tag">MATLAB</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3 data-i18n data-en="Machine Learning" data-zh="机器学习"></h3>
+        <div class="skill-tags">
+          <span class="skill-tag">PyTorch</span>
+          <span class="skill-tag">TensorFlow</span>
+          <span class="skill-tag">Federated Learning</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3 data-i18n data-en="Other" data-zh="其他"></h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Figma</span>
+          <span class="skill-tag">Adobe Photoshop</span>
+          <span class="skill-tag">Adobe Illustrator</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── Projects ─── -->
+    <section id="projects">
+      <div class="section-label" data-i18n data-en="Projects" data-zh="项目"></div>
+      <h2 data-i18n data-en="Selected repositories" data-zh="精选仓库"></h2>
+      <div class="filter-row">
+        <div class="filter-bar" id="filter-bar">
+          <button type="button" class="active" data-filter="all">
+            <span data-i18n data-en="All" data-zh="全部"></span>
+            <span class="filter-count" data-filter-count="all">0</span>
+          </button>
+          <button type="button" data-filter="featured">
+            <span data-i18n data-en="Featured" data-zh="精选"></span>
+            <span class="filter-count" data-filter-count="featured">0</span>
+          </button>
+          <button type="button" data-filter="research">
+            <span data-i18n data-en="Research" data-zh="研究"></span>
+            <span class="filter-count" data-filter-count="research">0</span>
+          </button>
+          <button type="button" data-filter="notes">
+            <span data-i18n data-en="Notes" data-zh="笔记"></span>
+            <span class="filter-count" data-filter-count="notes">0</span>
+          </button>
+          <button type="button" data-filter="tools">
+            <span data-i18n data-en="Tools" data-zh="工具"></span>
+            <span class="filter-count" data-filter-count="tools">0</span>
+          </button>
+        </div>
+        <div class="filter-caption" id="filter-status"></div>
+      </div>
+      <div class="project-grid" id="project-grid"></div>
+      <div
+        class="empty-state"
+        id="empty-state"
+        data-i18n
+        data-en="No repositories match this filter."
+        data-zh="当前筛选条件下没有匹配的仓库。"
+      ></div>
+    </section>
+
+    <footer class="footer">
       <div class="footer-links">
-        <a
-          class="footer-icon"
-          href="mailto:scyys25@nottingham.edu.cn"
-          data-aria-en="Email"
-          data-aria-zh="邮箱"
-          aria-label="邮箱"
-        >
-          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-            <path d="M4 7.5L12 13.25L20 7.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="3.25" y="5.25" width="17.5" height="13.5" rx="2.75" stroke="currentColor" stroke-width="1.8"/>
-          </svg>
+        <a class="footer-icon" href="mailto:scyys25@nottingham.edu.cn" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.25" y="5.25" width="17.5" height="13.5" rx="2.75"/><path d="M4 7.5L12 13.25L20 7.5"/></svg>
         </a>
-        <a
-          class="footer-icon"
-          href="https://www.linkedin.com/in/isaac-sun/"
-          target="_blank"
-          rel="noreferrer"
-          data-aria-en="LinkedIn"
-          data-aria-zh="LinkedIn"
-          aria-label="LinkedIn"
-        >
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M6.69 8.52A1.56 1.56 0 1 1 6.7 5.4a1.56 1.56 0 0 1-.01 3.12ZM5.37 9.87H8V18.6H5.37V9.87ZM9.7 9.87h2.52v1.2h.04c.35-.66 1.2-1.36 2.48-1.36 2.66 0 3.15 1.75 3.15 4.03v4.86h-2.62v-4.31c0-1.03-.02-2.35-1.43-2.35-1.43 0-1.65 1.12-1.65 2.28v4.38H9.7V9.87Z"/>
-          </svg>
+        <a class="footer-icon" href="https://www.linkedin.com/in/isaac-sun/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.69 8.52A1.56 1.56 0 1 1 6.7 5.4a1.56 1.56 0 0 1-.01 3.12ZM5.37 9.87H8V18.6H5.37V9.87ZM9.7 9.87h2.52v1.2h.04c.35-.66 1.2-1.36 2.48-1.36 2.66 0 3.15 1.75 3.15 4.03v4.86h-2.62v-4.31c0-1.03-.02-2.35-1.43-2.35-1.43 0-1.65 1.12-1.65 2.28v4.38H9.7V9.87Z"/></svg>
         </a>
-        <a
-          class="footer-icon"
-          href="https://github.com/isaac-sun"
-          target="_blank"
-          rel="noreferrer"
-          data-aria-en="GitHub"
-          data-aria-zh="GitHub"
-          aria-label="GitHub"
-        >
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M12 2C6.48 2 2 6.6 2 12.27c0 4.54 2.87 8.39 6.84 9.75.5.1.68-.22.68-.49 0-.24-.01-1.04-.01-1.88-2.78.62-3.37-1.22-3.37-1.22-.46-1.2-1.11-1.52-1.11-1.52-.91-.64.07-.63.07-.63 1 .08 1.54 1.06 1.54 1.06.9 1.58 2.35 1.12 2.92.86.09-.67.35-1.12.64-1.38-2.22-.26-4.55-1.15-4.55-5.13 0-1.13.39-2.05 1.03-2.78-.1-.26-.45-1.31.1-2.74 0 0 .84-.28 2.75 1.06A9.3 9.3 0 0 1 12 7.19c.85 0 1.71.12 2.51.35 1.9-1.34 2.74-1.06 2.74-1.06.55 1.43.2 2.48.1 2.74.64.73 1.03 1.65 1.03 2.78 0 3.99-2.33 4.87-4.56 5.13.36.32.68.93.68 1.88 0 1.36-.01 2.45-.01 2.78 0 .27.18.59.69.49A10.23 10.23 0 0 0 22 12.27C22 6.6 17.52 2 12 2Z"/>
-          </svg>
+        <a class="footer-icon" href="https://github.com/isaac-sun" target="_blank" rel="noreferrer" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.6 2 12.27c0 4.54 2.87 8.39 6.84 9.75.5.1.68-.22.68-.49 0-.24-.01-1.88-.01-1.88-2.78.62-3.37-1.22-3.37-1.22-.46-1.2-1.11-1.52-1.11-1.52-.91-.64.07-.63.07-.63 1 .08 1.54 1.06 1.54 1.06.9 1.58 2.35 1.12 2.92.86.09-.67.35-1.12.64-1.38-2.22-.26-4.55-1.15-4.55-5.13 0-1.13.39-2.05 1.03-2.78-.1-.26-.45-1.31.1-2.74 0 0 .84-.28 2.75 1.06A9.3 9.3 0 0 1 12 7.19c.85 0 1.71.12 2.51.35 1.9-1.34 2.74-1.06 2.74-1.06.55 1.43.2 2.48.1 2.74.64.73 1.03 1.65 1.03 2.78 0 3.99-2.33 4.87-4.56 5.13.36.32.68.93.68 1.88 0 1.36-.01 2.45-.01 2.78 0 .27.18.59.69.49A10.23 10.23 0 0 0 22 12.27C22 6.6 17.52 2 12 2Z"/></svg>
         </a>
       </div>
+      <div class="footer-copy">Yinan SUN &copy; 2024–2026</div>
     </footer>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <script>
     const username = "isaac-sun";
     const storedLang = localStorage.getItem("site-lang");
@@ -1671,11 +989,11 @@
         language: "Python",
         en: {
           title: "CS AI Learning Notes",
-          description: "A structured and continuously evolving knowledge base for computer science and AI, mixing theory, math foundations, and implementation from scratch."
+          description: "A structured and continuously evolving knowledge base for computer science and AI."
         },
         zh: {
           title: "CS AI 学习笔记",
-          description: "一个持续更新的计算机科学与人工智能知识库，把理论、数学基础和从零实现整理到同一个长期项目里。"
+          description: "一个持续更新的计算机科学与人工智能知识库，涵盖理论、数学基础和从零实现。"
         }
       },
       {
@@ -1686,11 +1004,11 @@
         language: "Markdown",
         en: {
           title: "CS Course Archive",
-          description: "A public archive of university CS study materials, notes, and course resources collected and organized over several academic years."
+          description: "A public archive of university CS study materials, notes, and course resources."
         },
         zh: {
           title: "CS 课程资料库",
-          description: "一个公开整理的大学计算机课程资料库，汇总了数年学习中的课程文件、笔记和复习资源。"
+          description: "一个公开整理的大学计算机课程资料库，汇总了数年学习中的课程文件和复习资源。"
         }
       },
       {
@@ -1701,11 +1019,11 @@
         language: "Python",
         en: {
           title: "Chest X-ray FL vs Centralized",
-          description: "Experiments comparing centralized and federated learning for chest X-ray pneumonia classification, with a strong research-project flavor."
+          description: "Comparing centralized and federated learning for chest X-ray pneumonia classification."
         },
         zh: {
           title: "胸部 X 光联邦学习对比实验",
-          description: "围绕胸部 X 光肺炎分类任务，对集中式训练和联邦学习进行实验对比，偏研究型项目风格。"
+          description: "围绕胸部 X 光肺炎分类任务，对集中式训练和联邦学习进行实验对比。"
         }
       },
       {
@@ -1716,11 +1034,11 @@
         language: "Python",
         en: {
           title: "IMDB Sentiment with Federated Learning",
-          description: "A federated learning workflow for sentiment classification on IMDB, highlighting model training behavior in decentralized settings."
+          description: "Federated learning workflow for sentiment classification on IMDB in decentralized settings."
         },
         zh: {
           title: "基于联邦学习的 IMDB 情感分类",
-          description: "一个面向 IMDB 数据集的联邦学习情感分类流程，重点体现分布式训练场景下的模型行为。"
+          description: "面向 IMDB 数据集的联邦学习情感分类流程，体现分布式训练场景下的模型行为。"
         }
       },
       {
@@ -1731,11 +1049,11 @@
         language: "JavaScript",
         en: {
           title: "GIF Generator",
-          description: "A lightweight utility-style project centered on generating GIFs, representing the more practical tool-building side of the profile."
+          description: "A lightweight utility project centered on generating GIFs."
         },
         zh: {
           title: "GIF 生成器",
-          description: "一个偏轻量工具型的小项目，聚焦于 GIF 生成，也体现了主页中更偏实用构建的一面。"
+          description: "一个偏轻量工具型的项目，聚焦于 GIF 生成。"
         }
       },
       {
@@ -1746,70 +1064,50 @@
         language: "JavaScript",
         en: {
           title: "Claude Code Experiments",
-          description: "An AI-assisted coding workflow repository that reflects experimentation with developer tooling and practical interface ideas."
+          description: "AI-assisted coding workflow experiments reflecting exploration of developer tooling."
         },
         zh: {
           title: "Claude Code 实验",
-          description: "一个围绕 AI 辅助编程工作流的实验仓库，反映了你在开发者工具和实际界面方向上的探索。"
+          description: "围绕 AI 辅助编程工作流的实验仓库，探索开发者工具和实际界面方向。"
         }
       }
     ];
 
     const languageColors = {
-      Python: "#56c8ff",
-      JavaScript: "#ffd86b",
-      Markdown: "#59f7a8",
-      HTML: "#ff9566",
-      CSS: "#7cf4d1"
+      Python: "#3572A5",
+      JavaScript: "#f1e05a",
+      Markdown: "#083fa1",
+      HTML: "#e34c26",
+      CSS: "#563d7c"
     };
 
     const uiText = {
-      projectPrimary: {
-        en: "Open repository",
-        zh: "打开仓库"
-      },
-      projectSecondary: {
-        en: "View on GitHub",
-        zh: "前往 GitHub"
-      },
-      updated: {
-        en: "Updated",
-        zh: "更新于"
-      },
+      projectPrimary: { en: "Repository", zh: "仓库" },
+      updated: { en: "Updated", zh: "更新于" },
       filterStatus: {
-        en: (count) => `${count} shown`,
-        zh: (count) => `当前显示 ${count} 项`
+        en: function(count) { return count + " shown"; },
+        zh: function(count) { return "当前显示 " + count + " 项"; }
       },
       category: {
-        featured: {
-          en: "Featured",
-          zh: "精选"
-        },
-        research: {
-          en: "Research",
-          zh: "研究"
-        },
-        notes: {
-          en: "Notes",
-          zh: "笔记"
-        },
-        tools: {
-          en: "Tools",
-          zh: "工具"
-        }
+        featured: { en: "Featured", zh: "精选" },
+        research: { en: "Research", zh: "研究" },
+        notes: { en: "Notes", zh: "笔记" },
+        tools: { en: "Tools", zh: "工具" }
       }
     };
 
-    let projectState = projectDefinitions.map((item) => ({
-      ...item,
-      html_url: `https://github.com/${username}/${item.name}`,
-      homepage: "",
-      stargazers_count: 0,
-      pushed_at: new Date().toISOString()
-    }));
+    let projectState = projectDefinitions.map(function(item) {
+      return Object.assign({}, item, {
+        html_url: "https://github.com/" + username + "/" + item.name,
+        homepage: "",
+        stargazers_count: 0,
+        pushed_at: new Date().toISOString()
+      });
+    });
 
-    function formatDate(isoString, lang = currentLang) {
-      const locale = lang === "zh" ? "zh-CN" : "en-US";
+    function formatDate(isoString, lang) {
+      lang = lang || currentLang;
+      var locale = lang === "zh" ? "zh-CN" : "en-US";
       return new Intl.DateTimeFormat(locale, {
         year: "numeric",
         month: lang === "zh" ? "numeric" : "short",
@@ -1818,7 +1116,7 @@
     }
 
     function setStat(id, value) {
-      const node = document.getElementById(id);
+      var node = document.getElementById(id);
       if (node) node.textContent = value;
     }
 
@@ -1832,63 +1130,57 @@
 
     function applyTranslations(lang) {
       document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
-      document.querySelectorAll("[data-i18n]").forEach((node) => {
-        const next = node.dataset[lang];
+      document.querySelectorAll("[data-i18n]").forEach(function(node) {
+        var next = node.dataset[lang];
         if (typeof next === "string") node.textContent = next;
       });
-      document.querySelectorAll("[data-i18n-html]").forEach((node) => {
-        const next = node.dataset[lang];
+      document.querySelectorAll("[data-i18n-html]").forEach(function(node) {
+        var next = node.dataset[lang];
         if (typeof next === "string") node.innerHTML = next;
       });
-      document.querySelectorAll("[data-lang-button]").forEach((button) => {
+      document.querySelectorAll("[data-lang-button]").forEach(function(button) {
         button.classList.toggle("active", button.dataset.langButton === lang);
       });
-      document.querySelectorAll("[data-aria-en]").forEach((node) => {
-        const next = lang === "zh" ? node.dataset.ariaZh : node.dataset.ariaEn;
+      document.querySelectorAll("[data-aria-en]").forEach(function(node) {
+        var next = lang === "zh" ? node.dataset.ariaZh : node.dataset.ariaEn;
         if (typeof next === "string") node.setAttribute("aria-label", next);
       });
 
-      renderProjects();
       updateFilterMeta();
     }
 
     function buildRepoCard(repo) {
-      const details = repo[currentLang];
-      const language = repo.language || "Code";
-      const color = languageColors[language] || "#59f7a8";
-      const updatedLabel = uiText.updated[currentLang];
-      const repoUrl = repo.html_url || `https://github.com/${username}/${repo.name}`;
-      const categoryLabel = uiText.category[repo.category][currentLang];
-      const featuredLabel = uiText.category.featured[currentLang];
-      const coverAlt = `${details.title} cover`;
+      var details = repo[currentLang];
+      var language = repo.language || "Code";
+      var color = languageColors[language] || "#2563eb";
+      var updatedLabel = uiText.updated[currentLang];
+      var repoUrl = repo.html_url || "https://github.com/" + username + "/" + repo.name;
+      var categoryLabel = uiText.category[repo.category][currentLang];
+      var featuredLabel = uiText.category.featured[currentLang];
 
-      return `
-        <article class="project-card ${repo.featured ? "featured" : ""}" data-category="${repo.category}">
-          <div class="project-cover">
-            <img src="${repo.cover}" alt="${coverAlt}">
-          </div>
-          <div class="project-content">
-            <div class="repo-meta">
-              <span class="pill"><span class="language-dot" style="background:${color};"></span>${language}</span>
-              <span class="pill">★ ${repo.stargazers_count}</span>
-              <span class="pill">${updatedLabel} ${formatDate(repo.pushed_at, currentLang)}</span>
-            </div>
-            <h3>${details.title}</h3>
-            <p>${details.description}</p>
-            <div class="project-footer">
-              <div class="project-category">${repo.featured ? `${featuredLabel} · ${categoryLabel}` : categoryLabel}</div>
-              <div class="project-links">
-                <a href="${repoUrl}" target="_blank" rel="noreferrer">${uiText.projectPrimary[currentLang]}</a>
-                <a href="${repoUrl}" target="_blank" rel="noreferrer">${uiText.projectSecondary[currentLang]}</a>
-              </div>
-            </div>
-          </div>
-        </article>
-      `;
+      return (
+        '<article class="project-card' + (repo.featured ? " featured" : "") + '" data-category="' + repo.category + '">' +
+          '<div class="project-cover">' +
+            '<img src="' + repo.cover + '" alt="' + details.title + ' cover">' +
+          '</div>' +
+          '<div class="project-content">' +
+            '<h3>' + details.title + '</h3>' +
+            '<p>' + details.description + '</p>' +
+            '<div class="project-meta">' +
+              '<span><span class="lang-dot" style="background:' + color + ';"></span>' + language + '</span>' +
+              '<span>' + updatedLabel + ' ' + formatDate(repo.pushed_at, currentLang) + '</span>' +
+            '</div>' +
+          '</div>' +
+          '<div class="project-link">' +
+            '<span class="project-category">' + (repo.featured ? featuredLabel + ' · ' + categoryLabel : categoryLabel) + '</span>' +
+            '<a href="' + repoUrl + '" target="_blank" rel="noreferrer">' + uiText.projectPrimary[currentLang] + ' →</a>' +
+          '</div>' +
+        '</article>'
+      );
     }
 
     function getFilteredProjects() {
-      return projectState.filter((repo) => {
+      return projectState.filter(function(repo) {
         if (activeFilter === "all") return true;
         if (activeFilter === "featured") return repo.featured;
         return repo.category === activeFilter;
@@ -1896,89 +1188,72 @@
     }
 
     function updateFilterMeta() {
-      const counts = {
+      var counts = {
         all: projectState.length,
-        featured: projectState.filter((repo) => repo.featured).length,
-        research: projectState.filter((repo) => repo.category === "research").length,
-        notes: projectState.filter((repo) => repo.category === "notes").length,
-        tools: projectState.filter((repo) => repo.category === "tools").length
+        featured: projectState.filter(function(r) { return r.featured; }).length,
+        research: projectState.filter(function(r) { return r.category === "research"; }).length,
+        notes: projectState.filter(function(r) { return r.category === "notes"; }).length,
+        tools: projectState.filter(function(r) { return r.category === "tools"; }).length
       };
 
-      Object.entries(counts).forEach(([key, value]) => {
-        const node = document.querySelector(`[data-filter-count="${key}"]`);
-        if (node) node.textContent = String(value);
+      Object.keys(counts).forEach(function(key) {
+        var node = document.querySelector('[data-filter-count="' + key + '"]');
+        if (node) node.textContent = String(counts[key]);
       });
 
-      const status = document.getElementById("filter-status");
+      var status = document.getElementById("filter-status");
       if (status) {
         status.textContent = uiText.filterStatus[currentLang](getFilteredProjects().length);
       }
     }
 
     function renderProjects() {
-      const grid = document.getElementById("project-grid");
-      const empty = document.getElementById("empty-state");
-      const filtered = getFilteredProjects();
+      var grid = document.getElementById("project-grid");
+      var empty = document.getElementById("empty-state");
+      var filtered = getFilteredProjects();
 
       grid.innerHTML = filtered.map(buildRepoCard).join("");
       empty.style.display = filtered.length ? "none" : "block";
       updateFilterMeta();
-
-      if (window.gsap) {
-        gsap.fromTo(
-          "#project-grid .project-card",
-          { opacity: 0, y: 24, scale: 0.98 },
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 0.55,
-            stagger: 0.08,
-            ease: "power2.out",
-            clearProps: "transform"
-          }
-        );
-      }
-
-      setupProjectCardTilt();
     }
 
     async function loadGitHub() {
       try {
-        const [profileResponse, reposResponse] = await Promise.all([
-          fetch(`https://api.github.com/users/${username}`),
-          fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=updated`)
+        var _a = await Promise.all([
+          fetch("https://api.github.com/users/" + username),
+          fetch("https://api.github.com/users/" + username + "/repos?per_page=100&sort=updated")
         ]);
+        var profileResponse = _a[0];
+        var reposResponse = _a[1];
 
         if (!profileResponse.ok || !reposResponse.ok) {
           throw new Error("GitHub API failed");
         }
 
-        const profile = await profileResponse.json();
-        const repos = await reposResponse.json();
-        const repoMap = new Map(repos.map((repo) => [repo.name, repo]));
+        var profile = await profileResponse.json();
+        var repos = await reposResponse.json();
+        var repoMap = new Map(repos.map(function(repo) { return [repo.name, repo]; }));
 
         setStat("stat-repos", profile.public_repos);
         setStat("stat-followers", profile.followers);
         setStat("stat-following", profile.following);
 
-        const latestRepo = repos
-          .filter((repo) => !repo.fork)
-          .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at))[0];
+        var latestRepo = repos
+          .filter(function(repo) { return !repo.fork; })
+          .sort(function(a, b) { return new Date(b.pushed_at) - new Date(a.pushed_at); })[0];
 
         latestPushAt = latestRepo ? latestRepo.pushed_at : null;
         refreshLatestPushStat();
 
-        projectState = projectDefinitions.map((definition) => {
-          const repo = repoMap.get(definition.name);
-          return {
-            ...definition,
-            html_url: repo ? repo.html_url : `https://github.com/${username}/${definition.name}`,
+        projectState = projectDefinitions.map(function(definition) {
+          var repo = repoMap.get(definition.name);
+          return Object.assign({}, definition, {
+            html_url: repo ? repo.html_url : "https://github.com/" + username + "/" + definition.name,
             homepage: repo ? repo.homepage : "",
             stargazers_count: repo ? repo.stargazers_count : 0,
             pushed_at: repo ? repo.pushed_at : new Date().toISOString(),
             language: repo && repo.language ? repo.language : definition.language
-          };
+          });
         });
 
         renderProjects();
@@ -1993,10 +1268,10 @@
     }
 
     function setupFilters() {
-      document.querySelectorAll("#filter-bar [data-filter]").forEach((button) => {
-        button.addEventListener("click", () => {
+      document.querySelectorAll("#filter-bar [data-filter]").forEach(function(button) {
+        button.addEventListener("click", function() {
           activeFilter = button.dataset.filter;
-          document.querySelectorAll("#filter-bar [data-filter]").forEach((item) => {
+          document.querySelectorAll("#filter-bar [data-filter]").forEach(function(item) {
             item.classList.toggle("active", item === button);
           });
           renderProjects();
@@ -2005,300 +1280,14 @@
     }
 
     function setupLanguageSwitcher() {
-      document.querySelectorAll("[data-lang-button]").forEach((button) => {
-        button.addEventListener("click", () => {
+      document.querySelectorAll("[data-lang-button]").forEach(function(button) {
+        button.addEventListener("click", function() {
           currentLang = button.dataset.langButton;
           localStorage.setItem("site-lang", currentLang);
           applyTranslations(currentLang);
           refreshLatestPushStat();
+          renderProjects();
         });
-      });
-    }
-
-    function setupHeroParticles() {
-      const canvas = document.getElementById("hero-particles");
-      const heroPanel = canvas ? canvas.closest(".hero-copy") : null;
-      if (!canvas || !heroPanel) return;
-
-      const context = canvas.getContext("2d");
-      if (!context) return;
-
-      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      const particles = [];
-      let rafId = null;
-      let width = 0;
-      let height = 0;
-      let dpr = 1;
-
-      function resize() {
-        const rect = heroPanel.getBoundingClientRect();
-        width = rect.width;
-        height = rect.height;
-        dpr = Math.min(window.devicePixelRatio || 1, 2);
-        canvas.width = Math.max(1, Math.floor(width * dpr));
-        canvas.height = Math.max(1, Math.floor(height * dpr));
-        canvas.style.width = width + "px";
-        canvas.style.height = height + "px";
-        context.setTransform(dpr, 0, 0, dpr, 0, 0);
-
-        particles.length = 0;
-        const count = Math.max(18, Math.min(42, Math.floor(width / 26)));
-        for (let i = 0; i < count; i += 1) {
-          particles.push({
-            x: Math.random() * width,
-            y: Math.random() * height,
-            vx: (Math.random() - 0.5) * 0.22,
-            vy: (Math.random() - 0.5) * 0.22,
-            r: Math.random() * 2.2 + 0.8
-          });
-        }
-      }
-
-      function draw() {
-        context.clearRect(0, 0, width, height);
-
-        for (let i = 0; i < particles.length; i += 1) {
-          const p = particles[i];
-          p.x += p.vx;
-          p.y += p.vy;
-
-          if (p.x < -20) p.x = width + 20;
-          if (p.x > width + 20) p.x = -20;
-          if (p.y < -20) p.y = height + 20;
-          if (p.y > height + 20) p.y = -20;
-
-          context.beginPath();
-          context.fillStyle = i % 3 === 0 ? "rgba(89, 247, 168, 0.8)" : "rgba(86, 200, 255, 0.72)";
-          context.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-          context.fill();
-
-          for (let j = i + 1; j < particles.length; j += 1) {
-            const q = particles[j];
-            const dx = p.x - q.x;
-            const dy = p.y - q.y;
-            const distance = Math.hypot(dx, dy);
-            if (distance < 110) {
-              context.beginPath();
-              context.strokeStyle = `rgba(140, 228, 255, ${0.12 * (1 - distance / 110)})`;
-              context.lineWidth = 1;
-              context.moveTo(p.x, p.y);
-              context.lineTo(q.x, q.y);
-              context.stroke();
-            }
-          }
-        }
-
-        if (!reduceMotion) {
-          rafId = window.requestAnimationFrame(draw);
-        }
-      }
-
-      resize();
-      draw();
-      window.addEventListener("resize", resize);
-
-      if (reduceMotion && rafId) {
-        window.cancelAnimationFrame(rafId);
-      }
-    }
-
-    function setupParallax() {
-      if (!window.gsap) return;
-      if (!window.matchMedia("(pointer: fine)").matches) return;
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-      document.querySelectorAll("[data-parallax-root]").forEach((root) => {
-        const items = Array.from(root.querySelectorAll("[data-parallax]"));
-        if (!items.length) return;
-
-        root.addEventListener("pointermove", (event) => {
-          const rect = root.getBoundingClientRect();
-          const relX = (event.clientX - rect.left) / rect.width - 0.5;
-          const relY = (event.clientY - rect.top) / rect.height - 0.5;
-
-          root.style.setProperty("--mx", `${((event.clientX - rect.left) / rect.width) * 100}%`);
-          root.style.setProperty("--my", `${((event.clientY - rect.top) / rect.height) * 100}%`);
-
-          items.forEach((item) => {
-            const depth = Number(item.dataset.parallax || 10);
-            gsap.to(item, {
-              x: relX * depth,
-              y: relY * depth,
-              rotationY: relX * depth * 0.35,
-              rotationX: -relY * depth * 0.35,
-              duration: 0.45,
-              ease: "power2.out",
-              overwrite: "auto"
-            });
-          });
-        });
-
-        root.addEventListener("pointerleave", () => {
-          root.style.setProperty("--mx", "50%");
-          root.style.setProperty("--my", "50%");
-          items.forEach((item) => {
-            gsap.to(item, {
-              x: 0,
-              y: 0,
-              rotationX: 0,
-              rotationY: 0,
-              duration: 0.6,
-              ease: "power3.out",
-              overwrite: "auto"
-            });
-          });
-        });
-      });
-    }
-
-    function setupProjectCardTilt() {
-      if (!window.matchMedia("(pointer: fine)").matches) return;
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
-      const activateCard = (card) => {
-        if (card.dataset.tiltBound === "true") return;
-        card.dataset.tiltBound = "true";
-
-        card.addEventListener("pointermove", (event) => {
-          const rect = card.getBoundingClientRect();
-          const px = ((event.clientX - rect.left) / rect.width) * 100;
-          const py = ((event.clientY - rect.top) / rect.height) * 100;
-          const rx = ((event.clientY - rect.top) / rect.height - 0.5) * -12;
-          const ry = ((event.clientX - rect.left) / rect.width - 0.5) * 14;
-
-          card.style.setProperty("--px", `${px}%`);
-          card.style.setProperty("--py", `${py}%`);
-          card.style.setProperty("--rx", `${rx}deg`);
-          card.style.setProperty("--ry", `${ry}deg`);
-          card.style.setProperty("--glow", "1");
-        });
-
-        card.addEventListener("pointerleave", () => {
-          card.style.setProperty("--px", "50%");
-          card.style.setProperty("--py", "50%");
-          card.style.setProperty("--rx", "0deg");
-          card.style.setProperty("--ry", "0deg");
-          card.style.setProperty("--glow", "0");
-        });
-      };
-
-      document.querySelectorAll(".project-card").forEach(activateCard);
-    }
-
-    function setupAnimations() {
-      if (!window.gsap || !window.ScrollTrigger) return;
-
-      gsap.registerPlugin(ScrollTrigger);
-
-      gsap.from(".nav", {
-        opacity: 0,
-        y: -22,
-        duration: 0.8,
-        ease: "power3.out"
-      });
-
-      gsap.from(".hero-copy > *", {
-        opacity: 0,
-        y: 22,
-        duration: 0.8,
-        stagger: 0.08,
-        ease: "power3.out",
-        delay: 0.12
-      });
-
-      gsap.from(".hero-aside", {
-        opacity: 0,
-        x: 26,
-        duration: 0.9,
-        ease: "power3.out",
-        delay: 0.2
-      });
-
-      gsap.to(".avatar-glow", {
-        scale: 1.08,
-        opacity: 0.86,
-        duration: 2.6,
-        yoyo: true,
-        repeat: -1,
-        ease: "sine.inOut"
-      });
-
-      gsap.to(".orbit", {
-        rotate: 360,
-        duration: 18,
-        repeat: -1,
-        ease: "none"
-      });
-
-      gsap.to(".orbit-2", {
-        rotate: -360,
-        duration: 26,
-        repeat: -1,
-        ease: "none"
-      });
-
-      gsap.to("#avatar-wrap", {
-        y: -12,
-        rotate: -1,
-        duration: 2.4,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut"
-      });
-
-      gsap.to(".badge-a", {
-        x: 10,
-        y: -8,
-        duration: 2.2,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut"
-      });
-
-      gsap.to(".badge-b", {
-        x: -10,
-        y: 10,
-        duration: 2.8,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut"
-      });
-
-      gsap.to(".badge-c", {
-        x: 8,
-        y: 8,
-        duration: 2.6,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut"
-      });
-
-      gsap.to(".badge-d", {
-        x: -8,
-        y: -10,
-        duration: 2.5,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut"
-      });
-
-      document.querySelectorAll(".reveal-on-scroll").forEach((element) => {
-        if (element.classList.contains("hero-copy") || element.classList.contains("hero-aside")) return;
-
-        gsap.fromTo(
-          element,
-          { opacity: 0, y: 40 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.8,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: element,
-              start: "top 82%"
-            }
-          }
-        );
       });
     }
 
@@ -2307,12 +1296,8 @@
     setupLanguageSwitcher();
     renderProjects();
 
-    window.addEventListener("load", () => {
+    window.addEventListener("load", function() {
       loadGitHub();
-      setupHeroParticles();
-      setupParallax();
-      setupProjectCardTilt();
-      setupAnimations();
     });
   </script>
 </body>
