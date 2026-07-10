@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Yinan SUN | Personal Site</title>
-  <meta name="description" content="Yinan SUN — Computer Science with AI student at University of Nottingham.">
+  <meta name="description" content="Yinan SUN — CS with AI student at University of Nottingham. Federated learning, systems, and practical building.">
   <meta name="theme-color" content="#ffffff">
   <meta property="og:title" content="Yinan SUN">
-  <meta property="og:description" content="CS with AI student at University of Nottingham. Projects in federated learning, systems, and tools.">
+  <meta property="og:description" content="CS with AI student at University of Nottingham Ningbo China. Focused on federated learning, AI systems, and shipping useful tools.">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -614,6 +614,195 @@
         align-items: flex-start;
       }
     }
+
+    /* ─── Motion & polish ─── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    body {
+      background:
+        radial-gradient(900px 420px at 10% -10%, rgba(37, 99, 235, 0.08), transparent 60%),
+        radial-gradient(700px 360px at 100% 0%, rgba(14, 165, 233, 0.06), transparent 55%),
+        var(--bg);
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(250, 250, 250, 0.86);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      margin-bottom: 28px;
+    }
+
+    .brand-dot {
+      box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.35);
+      animation: pulse-dot 2.4s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.28); }
+      50% { box-shadow: 0 0 0 8px rgba(37, 99, 235, 0); }
+    }
+
+    .hero-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .hero-status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    .hero-avatar {
+      transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    }
+
+    .hero-avatar:hover {
+      transform: translateY(-2px) scale(1.02);
+      border-color: #cbd5e1;
+      box-shadow: 0 16px 36px rgba(37, 99, 235, 0.12);
+    }
+
+    .btn {
+      transition: background 180ms ease, transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(37, 99, 235, 0.22);
+    }
+
+    .btn-secondary:hover {
+      transform: translateY(-1px);
+    }
+
+    .stat-card,
+    .entry,
+    .skill-group,
+    .project-card {
+      transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease, opacity 500ms ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-2px);
+      border-color: #d4d4d4;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
+    }
+
+    .entry {
+      border-left-color: #e5e5e5;
+      transition: border-color 200ms ease, transform 200ms ease, background 200ms ease;
+      border-radius: 0 10px 10px 0;
+      padding: 4px 0 4px 16px;
+    }
+
+    .entry:hover {
+      border-left-color: var(--accent);
+      background: rgba(239, 246, 255, 0.45);
+      transform: translateX(2px);
+    }
+
+    .skill-tag {
+      transition: transform 160ms ease, background 160ms ease, color 160ms ease;
+    }
+
+    .skill-tag:hover {
+      transform: translateY(-1px);
+      background: #dbeafe;
+    }
+
+    .project-card:hover {
+      transform: translateY(-2px);
+      border-color: #cbd5e1;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
+    }
+
+    .project-cover img {
+      transition: transform 320ms ease;
+    }
+
+    .project-card:hover .project-cover img {
+      transform: scale(1.04);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 560ms ease, transform 560ms ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .nav-links a {
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 1.5px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 180ms ease;
+    }
+
+    .nav-links a:hover::after {
+      transform: scaleX(1);
+    }
+
+    .footer-icon {
+      transition: color 160ms ease, border-color 160ms ease, transform 160ms ease, background 160ms ease;
+    }
+
+    .footer-icon:hover {
+      transform: translateY(-2px);
+      background: var(--accent-light);
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-label::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      background: var(--accent);
+      opacity: 0.85;
+    }
+
   </style>
 </head>
 <body>
@@ -639,16 +828,20 @@
     </nav>
 
     <!-- ─── Hero ─── -->
-    <section>
+    <section class="reveal">
       <div class="hero">
         <div>
+          <div class="hero-status">
+            <span class="hero-status-dot"></span>
+            <span data-i18n data-en="Open to research collaboration & internships" data-zh="开放研究合作与实习机会"></span>
+          </div>
           <h1>Yinan SUN</h1>
           <p class="hero-subtitle">Computer Science with Artificial Intelligence</p>
           <p
             class="hero-lead"
             data-i18n
-            data-en="BSc student at University of Nottingham, interested in federated learning, systems engineering, and building from first principles."
-            data-zh="宁波诺丁汉大学计算机科学与人工智能本科生。对联邦学习、系统工程和第一性原理构建感兴趣。"
+            data-en="Undergraduate at University of Nottingham Ningbo China, focused on federated learning, AI systems, and turning research ideas into reliable tools."
+            data-zh="宁波诺丁汉大学计算机科学与人工智能本科生，关注联邦学习、AI 系统，以及把研究想法做成可靠可用的工具。"
           ></p>
           <div class="contact-row">
             <span class="contact-item">
@@ -663,13 +856,20 @@
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.6 2 12.27c0 4.54 2.87 8.39 6.84 9.75.5.1.68-.22.68-.49 0-.24-.01-1.88-.01-1.88-2.78.62-3.37-1.22-3.37-1.22-.46-1.2-1.11-1.52-1.11-1.52-.91-.64.07-.63.07-.63 1 .08 1.54 1.06 1.54 1.06.9 1.58 2.35 1.12 2.92.86.09-.67.35-1.12.64-1.38-2.22-.26-4.55-1.15-4.55-5.13 0-1.13.39-2.05 1.03-2.78-.1-.26-.45-1.31.1-2.74 0 0 .84-.28 2.75 1.06A9.3 9.3 0 0 1 12 7.19c.85 0 1.71.12 2.51.35 1.9-1.34 2.74-1.06 2.74-1.06.55 1.43.2 2.48.1 2.74.64.73 1.03 1.65 1.03 2.78 0 3.99-2.33 4.87-4.56 5.13.36.32.68.93.68 1.88 0 1.36-.01 2.45-.01 2.78 0 .27.18.59.69.49A10.23 10.23 0 0 0 22 12.27C22 6.6 17.52 2 12 2Z"/></svg>
               <a href="https://github.com/isaac-sun" target="_blank" rel="noreferrer">isaac-sun</a>
             </span>
+            <span class="contact-item">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.69 8.52A1.56 1.56 0 1 1 6.7 5.4a1.56 1.56 0 0 1-.01 3.12ZM5.37 9.87H8V18.6H5.37V9.87ZM9.7 9.87h2.52v1.2h.04c.35-.66 1.2-1.36 2.48-1.36 2.66 0 3.15 1.75 3.15 4.03v4.86h-2.62v-4.31c0-1.03-.02-2.35-1.43-2.35-1.43 0-1.65 1.12-1.65 2.28v4.38H9.7V9.87Z"/></svg>
+              <a href="https://www.linkedin.com/in/isaac-sun/" target="_blank" rel="noreferrer">LinkedIn</a>
+            </span>
           </div>
           <div class="hero-actions" style="margin-top:20px;">
-            <a class="btn btn-primary" href="https://github.com/isaac-sun" target="_blank" rel="noreferrer">
+            <a class="btn btn-primary" href="#projects">
+              <span data-i18n data-en="View Projects" data-zh="查看项目"></span>
+            </a>
+            <a class="btn btn-secondary" href="https://github.com/isaac-sun" target="_blank" rel="noreferrer">
               <span data-i18n data-en="GitHub Profile" data-zh="GitHub 主页"></span>
             </a>
-            <a class="btn btn-secondary" href="#projects">
-              <span data-i18n data-en="View Projects" data-zh="查看项目"></span>
+            <a class="btn btn-secondary" href="mailto:scyys25@nottingham.edu.cn">
+              <span data-i18n data-en="Contact" data-zh="联系我"></span>
             </a>
           </div>
         </div>
@@ -682,9 +882,9 @@
     </section>
 
     <!-- ─── GitHub Stats ─── -->
-    <section>
+    <section class="reveal">
       <div class="section-label" data-i18n data-en="Profile" data-zh="GitHub 档案"></div>
-      <h2 data-i18n data-en="GitHub at a glance" data-zh="GitHub 一览"></h2>
+      <h2 data-i18n data-en="GitHub snapshot" data-zh="GitHub 一览"></h2>
       <div class="stats-grid">
         <div class="stat-card">
           <div class="stat-label" data-i18n data-en="Public Repos" data-zh="公开仓库"></div>
@@ -706,9 +906,9 @@
     </section>
 
     <!-- ─── Education ─── -->
-    <section id="education">
+    <section id="education" class="reveal">
       <div class="section-label" data-i18n data-en="Education" data-zh="教育背景"></div>
-      <h2 data-i18n data-en="Academic background" data-zh="学术背景"></h2>
+      <h2 data-i18n data-en="Education" data-zh="教育背景"></h2>
       <div class="entry-list">
         <div class="entry">
           <div class="entry-header">
@@ -735,32 +935,32 @@
     </section>
 
     <!-- ─── Experience ─── -->
-    <section id="experience">
+    <section id="experience" class="reveal">
       <div class="section-label" data-i18n data-en="Experience" data-zh="经历"></div>
-      <h2 data-i18n data-en="Internship & Leadership" data-zh="实习与领导力经历"></h2>
+      <h2 data-i18n data-en="Experience" data-zh="经历"></h2>
       <div class="entry-list">
         <div class="entry">
           <div class="entry-header">
             <div>
-              <div class="entry-title" data-i18n data-en="Student Intern — UNNC IT Services" data-zh="学生实习生 — UNNC IT 服务"></div>
+              <div class="entry-title" data-i18n data-en="IT Services Intern — UNNC" data-zh="IT 服务实习生 — 宁波诺丁汉大学"></div>
             </div>
             <span class="entry-meta">Aug 2025 – Present</span>
           </div>
           <div class="entry-detail" data-i18n
-            data-en="Participated in the maintenance of the school's information system, providing face-to-face, phone, and email support for IT-related issues. Assisted in writing the Problem Shooting document for new student pre-registration and helped over 800 people complete online pre-registration during the welcome period."
-            data-zh="参与学校信息系统的维护工作，为全校师生提供面对面、电话和邮件的IT问题支持。协助撰写新生预注册的Problem Shooting文档，在迎新期间帮助超过800人完成在线预注册。"
+            data-en="Supported campus information systems and day-to-day IT operations through in-person, phone, and email channels. Co-authored pre-registration troubleshooting docs and helped 800+ students complete online onboarding during welcome week."
+            data-zh="参与校园信息系统维护与日常 IT 支持（面对面 / 电话 / 邮件）。协助编写新生预注册排查文档，迎新期间帮助 800+ 学生完成在线注册。"
           ></div>
         </div>
         <div class="entry">
           <div class="entry-header">
             <div>
-              <div class="entry-title" data-i18n data-en="PM Manager — UNNC New Student Welcome" data-zh="项目管理 — UNNC 新生迎新"></div>
+              <div class="entry-title" data-i18n data-en="Project Lead — UNNC Orientation & Peer Mentoring" data-zh="项目负责人 — UNNC 迎新与朋辈导师"></div>
             </div>
             <span class="entry-meta">Mar 2025 – Oct 2025</span>
           </div>
           <div class="entry-detail" data-i18n
-            data-en="As one of the project leaders for the 2025 Induction Week, completed the recruitment, interview, and selection of peer mentors for the 2025–2026 academic year, and coordinated welcome week activities during the autumn registration period."
-            data-zh="作为2025年迎新周的项目负责人之一，完成了2025-2026学年朋辈导师的招募、面试和选拔工作，同时协调秋季新生报到期间的迎新周工作。"
+            data-en="Led peer mentor recruitment, interviews, and selection for 2025–2026, and coordinated orientation logistics during autumn registration."
+            data-zh="负责 2025–2026 朋辈导师招募、面试与选拔，并统筹秋季报到期间的迎新周协调工作。"
           ></div>
         </div>
         <div class="entry">
@@ -771,20 +971,20 @@
             <span class="entry-meta">Apr 2025 – Jun 2026</span>
           </div>
           <div class="entry-detail" data-i18n
-            data-en="Oversaw all association work; completed brand image upgrade; integrated an intelligent chatbot into the WeChat official account using Tencent Hunyuan model, providing crisis intervention and emotional support for all faculty and students."
-            data-zh="全面负责心理协会工作；完成品牌形象升级；利用腾讯混元模型将智能机器人嵌入微信公众号，为全校师生提供危机干预、情绪宣泄等心理支持功能。"
+            data-en="Led association operations and brand refresh. Built a WeChat official-account chatbot with Tencent Hunyuan for campus mental-health support scenarios such as emotional support and crisis triage."
+            data-zh="负责协会运营与品牌升级；基于腾讯混元模型将智能机器人接入微信公众号，支持情绪疏导与危机干预等校园心理支持场景。"
           ></div>
         </div>
         <div class="entry">
           <div class="entry-header">
             <div>
-              <div class="entry-title" data-i18n data-en="Vice-President — UNNC Computer Psycho Union" data-zh="副会长 — UNNC CPU"></div>
+              <div class="entry-title" data-i18n data-en="Vice President — UNNC CPU" data-zh="副会长 — UNNC CPU"></div>
             </div>
             <span class="entry-meta">Mar 2025 – Jun 2026</span>
           </div>
           <div class="entry-detail" data-i18n
-            data-en="Responsible for event planning and publicity; coordinated with other student organizations and university departments."
-            data-zh="负责活动策划和宣传，协调与其他学生组织和学校部门的合作。"
+            data-en="Planned student activities and publicity, and coordinated collaboration across student organizations and university departments."
+            data-zh="负责活动策划与宣传，并协调跨学生组织与学校部门的合作。"
           ></div>
         </div>
         <div class="entry">
@@ -795,23 +995,23 @@
             <span class="entry-meta">Oct 2024 – May 2025</span>
           </div>
           <div class="entry-detail" data-i18n
-            data-en="As CS major representative in the LCF of UNNC's English Language Teaching Center, independently collected feedback from all CS students. Collected feedback was used by course module leaders to improve teaching quality."
-            data-zh="作为计算机科学专业在英语语言教学中心学习社区论坛的代表，独立收集计算机科学系全体学生的反馈、建议和意见。收集的反馈经讨论后，由课程模块负责人用于改进课程质量和教学方法。"
+            data-en="Represented CS students in the English Language Teaching Center Learning Community Forum, collecting cohort feedback that module leaders used to improve teaching quality."
+            data-zh="作为计算机科学专业在英语语言教学中心学习社区论坛的代表，收集学生反馈与建议，供课程模块负责人改进教学质量。"
           ></div>
         </div>
       </div>
     </section>
 
     <!-- ─── Awards ─── -->
-    <section id="awards">
+    <section id="awards" class="reveal">
       <div class="section-label" data-i18n data-en="Awards" data-zh="奖项与证书"></div>
-      <h2 data-i18n data-en="Certificates & Recognition" data-zh="证书与荣誉"></h2>
+      <h2 data-i18n data-en="Awards & recognition" data-zh="荣誉与奖项"></h2>
       <div class="entry-list">
         <div class="entry">
           <div class="entry-header">
             <div>
-              <div class="entry-title" data-i18n data-en="Meritorious Winner (World Top 7%)" data-zh="特等奖（全球前7%）"></div>
-              <div class="entry-subtitle" data-i18n data-en="2026 Mathematical Contest in Modelling" data-zh="2026年美国大学生数学建模竞赛"></div>
+              <div class="entry-title" data-i18n data-en="Meritorious Winner (Top 7% Global)" data-zh="特等奖（全球前 7%）"></div>
+              <div class="entry-subtitle" data-i18n data-en="Mathematical Contest in Modeling (MCM/ICM) 2026" data-zh="2026 美国大学生数学建模竞赛（MCM/ICM）"></div>
             </div>
             <span class="entry-meta">Jan 2026</span>
           </div>
@@ -819,7 +1019,7 @@
         <div class="entry">
           <div class="entry-header">
             <div>
-              <div class="entry-title" data-i18n data-en="Outstanding Student Leader (Top 5%)" data-zh="优秀学生领袖（前5%）"></div>
+              <div class="entry-title" data-i18n data-en="Outstanding Student Leader (Top 5%)" data-zh="优秀学生领袖（前 5%）"></div>
               <div class="entry-subtitle" data-i18n data-en="2026 UNNC Student Award" data-zh="2026年 UNNC 学生奖项"></div>
             </div>
             <span class="entry-meta">Jun 2026</span>
@@ -851,17 +1051,17 @@
             <span class="entry-meta">Jun – Oct 2025</span>
           </div>
           <div class="entry-detail" data-i18n
-            data-en="Collaborated with teammates to complete the proposal writing and project planning for the 'Enterprise Digital Asset Allocation Cycle System Based on Artificial Intelligence.'"
-            data-zh="与队友合作完成《基于人工智能的企业数字资产配置循环系统》的方案撰写和项目规划，成功完成比赛并提交方案。"
+            data-en="Co-authored the proposal and project plan for an AI-based enterprise digital asset allocation system and successfully submitted the competition entry."
+            data-zh="与队友共同完成《基于人工智能的企业数字资产配置循环系统》方案撰写与项目规划，并成功提交参赛作品。"
           ></div>
         </div>
       </div>
     </section>
 
     <!-- ─── Skills ─── -->
-    <section id="skills">
+    <section id="skills" class="reveal">
       <div class="section-label" data-i18n data-en="Skills" data-zh="技能"></div>
-      <h2 data-i18n data-en="Technical skills" data-zh="技术技能"></h2>
+      <h2 data-i18n data-en="Skills" data-zh="技能"></h2>
       <div class="skill-group">
         <h3 data-i18n data-en="Programming Languages" data-zh="编程语言"></h3>
         <div class="skill-tags">
@@ -918,9 +1118,9 @@
     </section>
 
     <!-- ─── Projects ─── -->
-    <section id="projects">
+    <section id="projects" class="reveal">
       <div class="section-label" data-i18n data-en="Projects" data-zh="项目"></div>
-      <h2 data-i18n data-en="Selected repositories" data-zh="精选仓库"></h2>
+      <h2 data-i18n data-en="Selected work" data-zh="精选项目"></h2>
       <div class="filter-row">
         <div class="filter-bar" id="filter-bar">
           <button type="button" class="active" data-filter="all">
@@ -968,7 +1168,7 @@
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.6 2 12.27c0 4.54 2.87 8.39 6.84 9.75.5.1.68-.22.68-.49 0-.24-.01-1.88-.01-1.88-2.78.62-3.37-1.22-3.37-1.22-.46-1.2-1.11-1.52-1.11-1.52-.91-.64.07-.63.07-.63 1 .08 1.54 1.06 1.54 1.06.9 1.58 2.35 1.12 2.92.86.09-.67.35-1.12.64-1.38-2.22-.26-4.55-1.15-4.55-5.13 0-1.13.39-2.05 1.03-2.78-.1-.26-.45-1.31.1-2.74 0 0 .84-.28 2.75 1.06A9.3 9.3 0 0 1 12 7.19c.85 0 1.71.12 2.51.35 1.9-1.34 2.74-1.06 2.74-1.06.55 1.43.2 2.48.1 2.74.64.73 1.03 1.65 1.03 2.78 0 3.99-2.33 4.87-4.56 5.13.36.32.68.93.68 1.88 0 1.36-.01 2.45-.01 2.78 0 .27.18.59.69.49A10.23 10.23 0 0 0 22 12.27C22 6.6 17.52 2 12 2Z"/></svg>
         </a>
       </div>
-      <div class="footer-copy">Yinan SUN &copy; 2024–2026</div>
+      <div class="footer-copy">Yinan SUN · Built with care · © 2024–2026</div>
     </footer>
   </div>
 
@@ -982,21 +1182,6 @@
 
     const projectDefinitions = [
       {
-        name: "cs-ai-learning-notes",
-        category: "notes",
-        featured: true,
-        cover: "./assets/covers/cs-ai-learning-notes.svg",
-        language: "Markdown",
-        en: {
-          title: "CS AI Learning Notes",
-          description: "A structured and continuously evolving knowledge base for computer science and AI, mixing theory, math foundations, and implementation from scratch."
-        },
-        zh: {
-          title: "CS AI 学习笔记",
-          description: "一个持续更新的计算机科学与人工智能知识库，涵盖理论、数学基础和从零实现。"
-        }
-      },
-      {
         name: "fedfree",
         category: "research",
         featured: true,
@@ -1004,11 +1189,11 @@
         language: "Python",
         en: {
           title: "FedFree — Free-Rider Defense in FL",
-          description: "Two-phase per-class Shapley value detection against free-rider attacks in federated learning, built on DistilBERT + LoRA (PEFT) and evaluated on Yahoo Answers."
+          description: "A two-stage free-rider detection method for federated learning using class-wise Shapley values, evaluated with DistilBERT + LoRA (PEFT) on Yahoo Answers."
         },
         zh: {
           title: "FedFree — 联邦学习搭便车攻击防御",
-          description: "基于逐类 Shapley 值的两阶段检测方法，针对联邦学习中的搭便车攻击，使用 DistilBERT + LoRA (PEFT) 在 Yahoo Answers 上评估。"
+          description: "面向联邦学习搭便车攻击的两阶段检测方法，基于逐类 Shapley 值，并在 DistilBERT + LoRA (PEFT) 与 Yahoo Answers 设定下完成评估。"
         }
       },
       {
@@ -1019,11 +1204,26 @@
         language: "Python",
         en: {
           title: "Chest X-ray FL vs Centralized",
-          description: "Comparing centralized and federated learning for chest X-ray pneumonia classification, with a strong research-project flavor."
+          description: "A comparative study of centralized training and federated learning for pneumonia classification on chest X-ray data."
         },
         zh: {
           title: "胸部 X 光联邦学习对比实验",
-          description: "围绕胸部 X 光肺炎分类任务，对集中式训练和联邦学习进行实验对比，偏研究型项目风格。"
+          description: "围绕胸部 X 光肺炎分类任务，系统比较集中式训练与联邦学习在隐私、通信与性能上的权衡。"
+        }
+      },
+      {
+        name: "cs-ai-learning-notes",
+        category: "notes",
+        featured: true,
+        cover: "./assets/covers/cs-ai-learning-notes.svg",
+        language: "Markdown",
+        en: {
+          title: "CS & AI Learning Notes",
+          description: "A living knowledge base for computer science and AI, combining theory, math foundations, and implementation notes."
+        },
+        zh: {
+          title: "CS & AI 学习笔记",
+          description: "持续更新的计算机科学与人工智能知识库，覆盖理论、数学基础与实现笔记。"
         }
       },
       {
@@ -1034,11 +1234,11 @@
         language: "Python",
         en: {
           title: "GIF Generator",
-          description: "A lightweight utility project centered on generating GIFs, representing the more practical tool-building side."
+          description: "A small Python utility for generating GIFs — a lightweight example of practical tool-building."
         },
         zh: {
           title: "GIF 生成器",
-          description: "一个偏轻量工具型的项目，聚焦于 GIF 生成，体现更偏实用构建的一面。"
+          description: "一个轻量的 Python GIF 生成小工具，代表更偏实用构建的一面。"
         }
       }
     ];
@@ -1261,9 +1461,42 @@
       });
     }
 
+    function setupReveal() {
+      var nodes = document.querySelectorAll(".reveal");
+      if (!("IntersectionObserver" in window)) {
+        nodes.forEach(function(node) { node.classList.add("visible"); });
+        return;
+      }
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+      nodes.forEach(function(node) { observer.observe(node); });
+    }
+
+    var _renderProjects = renderProjects;
+    renderProjects = function() {
+      _renderProjects();
+      var cards = document.querySelectorAll("#project-grid .project-card");
+      cards.forEach(function(card, index) {
+        card.style.opacity = "0";
+        card.style.transform = "translateY(10px)";
+        setTimeout(function() {
+          card.style.transition = "opacity 420ms ease, transform 420ms ease, box-shadow 220ms ease, border-color 220ms ease";
+          card.style.opacity = "1";
+          card.style.transform = "none";
+        }, 40 + index * 60);
+      });
+    };
+
     applyTranslations(currentLang);
     setupFilters();
     setupLanguageSwitcher();
+    setupReveal();
     renderProjects();
 
     window.addEventListener("load", function() {
